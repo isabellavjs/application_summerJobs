@@ -321,7 +321,7 @@ const countries = [
     demography: {
       population: 11673021,
       density: 	11,
-      migrants: 	-9504,
+      migrants: -9504,
       urbanPopulation: 69,
     },
     capital: ['La Paz', 'Sucre'],
@@ -383,6 +383,44 @@ const countries = [
     },
     capital: 'Asunción',
     languages: ['Spanish', 'Guaraní'],
+    leaders: [
+      {
+        firstName: 'Luis',
+        lastName: 'Ángel González Macchi',
+        birthYear: 1947,
+        year: 1999,
+      },
+      {
+        firstName: 'Nicanor',
+        lastName: 'Duarte Frutos',
+        birthYear: 1956,
+        year: 2003,
+      },
+      {
+        firstName: 'Fernando',
+        lastName: 'Lugo',
+        birthYear: 1951,
+        year: 2008,
+      },
+      {
+        firstName: 'Federico',
+        lastName: 'Franco',
+        birthYear: 1962,
+        year: 2012,
+      },
+      {
+        firstName: 'Horacio',
+        lastName: 'Cartes',
+        birthYear: 1956,
+        year: 2013,
+      },
+      {
+        firstName: 'Mario',
+        lastName: 'Abdo Benítez',
+        birthYear: 1971,
+        year: 2018,
+      },
+    ]
   },
   {
     CountryCode: 'ROU',
@@ -396,6 +434,38 @@ const countries = [
     },
     capital: 'Montevideo',
     languages: 'Spanish',
+    leaders: [
+      {
+        firstName: 'Julio',
+        lastName: 'María Sanguinetti',
+        birthYear: 1936,
+        year: 2000,
+      },
+      {
+        firstName: 'Jorge',
+        lastName: 'Batlle',
+        birthYear: 1927,
+        year: 2005,
+      },
+      {
+        firstName: 'Tabaré',
+        lastName: 'Vázquez',
+        birthYear: 1940,
+        year: 2010,
+      },
+      {
+        firstName: 'José',
+        lastName: 'Mujica',
+        birthYear: 1935,
+        year: 2015,
+      },
+      {
+        firstName: 'Lacalle',
+        lastName: 'Pou',
+        birthYear: 1973,
+        year: 2020,
+      },
+    ]
   },
   {
     CountryCode: 'GUY',
@@ -409,6 +479,32 @@ const countries = [
     },
     capital: 'Georgetown',
     languages: 'English',
+    leaders: [
+      {
+        firstName: 'Bharrat',
+        lastName: 'Jagdeo',
+        birthYear: 1964,
+        year: 1999,
+      },
+      {
+        firstName: 'Donald',
+        lastName: 'Ramotar',
+        birthYear: 1950,
+        year: 2011,
+      },
+      {
+        firstName: 'David',
+        lastName: 'Granger',
+        birthYear: 1942,
+        year: 2015,
+      },
+      {
+        firstName: 'Irfaan',
+        lastName: 'Ali',
+        birthYear: 1942,
+        year: 2020,
+      },
+    ]
   },
   {
     CountryCode: 'SME',
@@ -422,6 +518,26 @@ const countries = [
     },
     capital: 'Paramaribo',
     languages: ['Dutch', 'Surinamese', 'English'],
+    leaders: [
+      {
+        firstName: 'Ronald',
+        lastName: 'Venetiaan',
+        birthYear: 1937,
+        year: 2000,
+      },
+      {
+        firstName: 'Dési',
+        lastName: 'Bouterse',
+        birthYear: 1945,
+        year: 2010,
+      },
+      {
+        firstName: 'Chan',
+        lastName: 'Santokhi',
+        birthYear: 1959,
+        year: 2020,
+      },
+    ]
   },
   {
     CountryCode: 'FK',
@@ -435,6 +551,32 @@ const countries = [
     },
     capital: 'Cayenne',
     languages: 'French',
+    leaders: [
+      {
+        firstName: 'Jacques',
+        lastName: 'Chirac',
+        birthYear: 1932,
+        year: [1995, 2002],
+      },
+      {
+        firstName: 'Nicolas',
+        lastName: 'Sarkozy',
+        birthYear: 1955,
+        year: 2007,
+      },
+      {
+        firstName: 'François',
+        lastName: 'Hollande',
+        birthYear: 1954,
+        year: 2012,
+      },
+      {
+        firstName: 'Emmanuel',
+        lastName: 'Macron',
+        birthYear: 1977,
+        year: 2017,
+      },
+    ]
   },
   {
     CountryCode: 'GF',
@@ -448,5 +590,37 @@ const countries = [
     },
     capital: 'Stanley',
     languages: 'English',
+    leaders: [
+      {
+        firstName: 'Michael',
+        lastName: 'Blanch',
+        birthYear: 1947,
+        year: 2000,
+      },
+      {
+        firstName: 'Chris',
+        lastName: 'Simpkins',
+        birthYear: 1950,
+        year: 2003,
+      },
+      {
+        firstName: 'Tim',
+        lastName: 'Thorogood',
+        birthYear: 1962,
+        year: 2008,
+      },
+      {
+        firstName: 'Keith',
+        lastName: 'Padgett',
+        birthYear: 1939,
+        year: 2012,
+      },
+      {
+        firstName: 'Barry',
+        lastName: 'Rowland',
+        birthYear: 1961,
+        year: 2016,
+      },
+    ]
   },
 ]
