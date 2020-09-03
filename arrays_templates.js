@@ -1,0 +1,452 @@
+const countries = [
+  {
+    CountryCode: 'BR',
+    name: 'Brazil',
+    currency: 'Brazilian real',
+    demography: {
+      population: 212559417,
+      density: 25,
+      migrants: 21200,
+      urbanPopulation: 88,
+    },
+    capital: 'Brasilia',
+    languages: 'Portuguese',
+    leaders: [
+      {
+        firstName: 'Fernando Henrique',
+        lastName: 'Cardoso',
+        birthYear: 1931,
+        year: 1998,
+      },
+      {
+        firstName: 'Luiz Inacio',
+        lastName: 'Lula da Silva',
+        birthYear: 1945,
+        year: [2002, 2006],
+      },
+      {
+        firstName: 'Dilma',
+        lastName: 'Rousseff',
+        birthYear: 1947,
+        year: [2010, 2014],
+      },
+      {
+        firstName: 'Michel',
+        lastName: 'Temer',
+        birthYear: 1940,
+        year: 2014,
+      },
+      {
+        firstName: 'Jair',
+        lastName: 'Bolsonaro',
+        birthYear: 1955,
+        year: 2018,
+      },
+    ]
+  },
+  {
+    CountryCode: 'CO',
+    name: 'Colombia',
+    currency: '	Colombian peso',
+    demography: {
+      population: 50882891,
+      density: 46,
+      migrants: 204796,
+      urbanPopulation: 80,
+    },
+    capital: 'Bogotá',
+    languages: 'Spanish',
+    leaders: [
+      {
+        firstName: 'Andres',
+        lastName: 'Pastrana Arango',
+        birthYear: 1954,
+        year: 1998,
+      },
+      {
+        firstName: 'Alvaro',
+        lastName: 'Uribe Velez',
+        birthYear: 1952,
+        year: 2002,
+      },
+      {
+        firstName: 'Juan Manuel',
+        lastName: 'Santos',
+        birthYear: 1951,
+        year: 2010,
+      },
+      {
+        firstName: 'Ivan',
+        lastName: 'Duarque Marquez',
+        birthYear: 1976,
+        year: 2018,
+      },
+    ],
+  },
+  {
+    CountryCode: 'RA',
+    name: 'Argentina',
+    currency: 'Argentine peso',
+    demography: {
+      population: 45195774,
+      density: 17,
+      migrants: 4800,
+      urbanPopulation: 93,
+    },
+    capital: 'Buenos Aires',
+    languages: ['Spanish', 'English', 'Italian', 'German', 'French'],
+    leaders: [
+      {
+        firstName: 'Fernando',
+        lastName: 'de la Rua',
+        birthYear: 1937,
+        year: 1999,
+      },
+      {
+        firstName: 'Adolfo',
+        lastName: 'Rodríguez Saá',
+        birthYear: 1947,
+        year: 2001,
+      },
+      {
+        firstName: 'Eduardo',
+        lastName: 'Duhalde',
+        birthYear: 1941,
+        year: 2002,
+      },
+      {
+        firstName: 'Nestor',
+        lastName: 'Kirchner',
+        birthYear: 1950,
+        year: 2003,
+      },
+      {
+        firstName: 'Cristina',
+        lastName: 'Fernández de Kirchner',
+        birthYear: 1953,
+        year: [2007, 2011],
+      },
+      {
+        firstName: 'Mauricio',
+        lastName: 'Macri',
+        birthYear: 1959,
+        year: 2015,
+      },
+      {
+        firstName: 'Alberto',
+        lastName: 'Fernandez',
+        birthYear: 1959,
+        year: 2019,
+      },
+    ]
+  },
+  {
+    CountryCode: 'PE',
+    name: 'Peru',
+    currency: 'Peruvian nuevo sol',
+    demography: {
+      population: 32971854,
+      density: 26,
+      migrants: 99069,
+      urbanPopulation: 79,
+    },
+    capital: 'Lima',
+    languages: ['Spanish', 'Quéchua', 'Aymara'],
+    leaders: [
+      {
+        firstName: '',
+        lastName: 'Paniagua',
+        birthYear: 1936,
+        year: 2000,
+      },
+      {
+        firstName: 'ALejandro',
+        lastName: 'Toledo',
+        birthYear: 1946,
+        year: 2001,
+      },
+      {
+        firstName: 'Alan',
+        lastName: 'Garcia Perez',
+        birthYear: 1949,
+        year: 2006,
+      },
+      {
+        firstName: 'Ollanta',
+        lastName: 'Humala',
+        birthYear: 1962,
+        year: 2011,
+      },
+      {
+        firstName: 'Pedro',
+        lastName: 'Pablo Kuczynski',
+        birthYear: 1938,
+        year: 2016,
+      },
+      {
+        firstName: 'Martin',
+        lastName: 'Vizcarra',
+        birthYear: 1963,
+        year: 2018,
+      },
+    ]
+  },
+  {
+    CountryCode: 'YV',
+    name: 'Venezuela',
+    currency: 'Venezuelan bolívar',
+    demography: {
+      population: 28435940,
+      density: 32,
+      migrants: -653249,
+      urbanPopulation: 88,
+    },
+    capital: 'Caracas',
+    languages: 'Spanish',
+    leaders: [
+      {
+        firstName: 'Hugo',
+        lastName: 'Chavez',
+        birthYear: 1954,
+        year: [2001, 2002, 2007, 2013]
+      },
+      {
+        firstName: 'Pedro',
+        lastName: 'Carmona Estanga',
+        birthYear: 1941,
+        year: 2002,
+      },
+      {
+        firstName: 'Diosdado',
+        lastName: 'Cabello',
+        birthYear: 1963,
+        year: 2002,
+      },
+      {
+        firstName: 'Nicolas',
+        lastName: 'Maduro',
+        birthYear: 1962,
+        year: 2013,
+      },
+    ]
+  },
+  {
+    CountryCode: 'RCH',
+    name: 'Chile',
+    currency: 'Chilean peso',
+    demography: {
+      population: 19116201,
+      density:	26,
+      migrants: 111708,
+      urbanPopulation: 85,
+    },
+    capital: 'Santiago',
+    languages: 'Spanish',
+    leaders: [
+      {
+        firstName: 'Ricardo',
+        lastName: 'Lagos',
+        birthYear: 1938,
+        year: 2000,
+      },
+      {
+        firstName: 'Michelle',
+        lastName: 'Bachelet',
+        birthYear: 1951,
+        year: [2006, 2014],
+      },
+      {
+        firstName: 'Sebastian',
+        lastName: 'Piñera',
+        birthYear: 1949,
+        year: [2010, 2018]
+      },
+    ]
+  },
+  {
+    CountryCode: 'EC',
+    name: 'Ecuador',
+    currency: 'United States dollar',
+    demography: {
+      population: 17643054,
+      density: 	71,
+      migrants: 36400,
+      urbanPopulation: 63,
+    },
+    capital: 'Quito',
+    languages: ['Spanish', 'Quechua'],
+    leaders: [
+      {
+        firstName: 'Jamil',
+        lastName: 'Mahuad',
+        birthYear: 1949,
+        year: 1998,
+      },
+      {
+        firstName: 'Gustavo',
+        lastName: 'Noboa',
+        birthYear: 1937,
+        year: 2000,
+      },
+      {
+        firstName: 'Lucio Edwin',
+        lastName: 'Gutiérrez Borbúa',
+        birthYear: 1957,
+        year: 2003,
+      },
+      {
+        firstName: 'Alfredo',
+        lastName: 'Palacio',
+        birthYear: 1939,
+        year: 2005,
+      },
+      {
+        firstName: 'Rafael',
+        lastName: 'Correa',
+        birthYear: 1963,
+        year: 2007,
+      },
+      {
+        firstName: 'Lenín',
+        lastName: 'Moreno',
+        birthYear: 1953,
+        year: 2017,
+      },
+    ]
+  },
+  {
+    CountryCode: 'BOL',
+    name: 'Bolivia',
+    currency: 'Boliviano',
+    demography: {
+      population: 11673021,
+      density: 	11,
+      migrants: 	-9504,
+      urbanPopulation: 69,
+    },
+    capital: ['La Paz', 'Sucre'],
+    languages: ['Spanish', 'Quechua', 'Aymara', 'Guarani'],
+    leaders: [
+      {
+        firstName: 'Hugo',
+        lastName: 'Banzer',
+        birthYear: 1926,
+        year: 1997,
+      },
+      {
+        firstName: 'Jorge',
+        lastName: 'Quiroga',
+        birthYear: 1960,
+        year: 2001,
+      },
+      {
+        firstName: 'Gonzalo',
+        lastName: 'Sánchez de Lozada',
+        birthYear: 1930,
+        year: 2002,
+      },
+      {
+        firstName: 'Carlos',
+        lastName: 'Mesa',
+        birthYear: 1953,
+        year: 2003,
+      },
+      {
+        firstName: 'Eduardo',
+        lastName: 'Rodríguez',
+        birthYear: 1956,
+        year: 2005,
+      },
+      {
+        firstName: 'Evo',
+        lastName: 'Morales',
+        birthYear: 1959,
+        year: 2006,
+      },
+      {
+        firstName: 'Jeanine',
+        lastName: 'Áñez',
+        birthYear: 1967,
+        year: 2019,
+      },
+    ]
+  },
+  {
+    CountryCode: 'PY',
+    name: 'Paraguay',
+    currency: 'Paraguayan guaraní',
+    demography: {
+      population: 7132538,
+      density: 18,
+      migrants: 	-16556,
+      urbanPopulation: 62,
+    },
+    capital: 'Asunción',
+    languages: ['Spanish', 'Guaraní'],
+  },
+  {
+    CountryCode: 'ROU',
+    name: 'Uruguay',
+    currency: '	Uruguayan peso',
+    demography: {
+      population: 3473730,
+      density: 	20,
+      migrants: -3000,
+      urbanPopulation: 96,
+    },
+    capital: 'Montevideo',
+    languages: 'Spanish',
+  },
+  {
+    CountryCode: 'GUY',
+    name: 'Guyana',
+    currency: 'Guyanese dollar',
+    demography: {
+      population: 786552,
+      density: 	4,
+      migrants: -6000,
+      urbanPopulation: 27,
+    },
+    capital: 'Georgetown',
+    languages: 'English',
+  },
+  {
+    CountryCode: 'SME',
+    name: 'Suriname',
+    currency: '	Surinamese dollar',
+    demography: {
+      population: 586632,
+      density: 	4,
+      migrants: -1000,
+      urbanPopulation: 65,
+    },
+    capital: 'Paramaribo',
+    languages: ['Dutch', 'Surinamese', 'English'],
+  },
+  {
+    CountryCode: 'FK',
+    name: 'French Guiana',
+    currency: 'Euro',
+    demography: {
+      population: 298682,
+      density: 	4,
+      migrants: 1200,
+      urbanPopulation: 87,
+    },
+    capital: 'Cayenne',
+    languages: 'French',
+  },
+  {
+    CountryCode: 'GF',
+    name: 'Falkland Islands',
+    currency: 'Falkland Islands pound',
+    demography: {
+      population: 3480,
+      density: 0,
+      migrants: 0,
+      urbanPopulation: 66,
+    },
+    capital: 'Stanley',
+    languages: 'English',
+  },
+]
