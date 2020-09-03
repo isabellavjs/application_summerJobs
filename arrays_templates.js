@@ -624,3 +624,101 @@ const countries = [
     ]
   },
 ]
+
+const menu = [
+  { type: 'entrada', name: 'Shimeji na manteiga', price: 18.90,  quantity: 1 },
+  { type: 'Prato', name: 'sushis', price: 9.50, quantity: 14 },
+  { type: 'Prato', name: 'sashimi', price: 32.90, quantity: 10 },
+  { type: 'Prato', name: 'hossomakis variados', price: 24.90, quantity: 6 },
+  { type: 'Prato', name: 'uramakis', price: 30.90, quantity: 8 },
+  { type: 'Sobremesa', name: 'banana caramelada', price: 11.90, quantity: 6 },
+]
+
+const users = [
+  {
+    name: 'Isabella',
+    age: 28,
+  },
+  {
+    name: 'Pedro',
+    age: 48,
+  },
+  {
+    name: 'Julia',
+    age: 15
+  },
+  {
+    name: 'Carla',
+    age: 30,
+  },
+  {
+    name: 'Paula',
+    age: 50,
+  }
+]
+
+const oddNumbers = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+
+const travellers = [
+  { lastName: 'Miller', firstName: 'John', insurance: true, destinations: ['Spain', 'Portugal', 'France', 'Italy'] },
+  { lastName: 'Carey', firstName: 'Mariah', insurance: true, destinations: ['England', 'Scotland', 'Belgium'] },
+  { lastName: 'Klein', firstName: 'Kevin', insurance: false, destinations: ['China'] },
+  { lastName: 'Fischer', firstName: 'Linda', insurance: true, destinations: ['Australia', 'Japan']},
+  { lastName: 'Fitz', firstName: 'Cleyton', insurance: false, destinations: ['India', 'Thailand', 'Vietnan', 'Dubai'] },
+]
+
+const olympicGames = ['China', 'Brazil', 'UK', 'USA', 'Italy', 'Russia']
+const years = [2008, 2016, 2012, 1996, 1960, 2014]
+
+const topBritishBands = [
+  {
+    name: 'The Beatles'
+    bestAlbuns: [
+      { album: , sales: },
+      { album: , sales: },
+      { album: , sales: },
+      { album: , sales: }
+    ],
+    genre: 'Pop'
+  },
+  {
+    name: 'Elton John',
+    bestAlbuns: [
+      { album: , sales: },
+      { album: , sales: },
+      { album: , sales: },
+      { album: , sales: }
+    ],
+    genre: 'Pop',
+  },
+  {
+    name: 'Led Zeppelin'
+    bestAlbuns: [
+      { album: , sales: },
+      { album: , sales: },
+      { album: , sales: },
+      { album: , sales: }
+    ],
+    genre: 'Heavy metal',
+  },
+  {
+    name: 'Queen'
+    bestAlbuns: [
+      { album: , sales: },
+      { album: , sales: },
+      { album: , sales: },
+      { album: , sales: }
+    ],
+    genre: 'Hard rock'
+  },
+  {
+    name: 'Pink Floyd'
+    bestAlbuns: [
+      { album: , sales: },
+      { album: , sales: },
+      { album: , sales: },
+      { album: , sales: }
+    ],
+    genre: 'Progressive rock'
+  },
+]
