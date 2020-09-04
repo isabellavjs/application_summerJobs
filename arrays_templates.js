@@ -672,52 +672,52 @@ const years = [2008, 2016, 2012, 1996, 1960, 2014]
 
 const topBritishBands = [
   {
-    name: 'The Beatles'
+    name: 'The Beatles',
     bestAlbuns: [
-      { album: , sales: },
-      { album: , sales: },
-      { album: , sales: },
-      { album: , sales: }
+      { album: 'Sgt. Pepper Lonely Hearts Club Band' , sales: 32000000},
+      { album: 'Revolver', sales: 27000000},
+      { album: 'Rubber Soul', sales: 16500000},
+      { album: 'The Beatles', sales: 16000000}
     ],
     genre: 'Pop'
   },
   {
     name: 'Elton John',
     bestAlbuns: [
-      { album: , sales: },
-      { album: , sales: },
-      { album: , sales: },
-      { album: , sales: }
+      { album: 'One Night Only -- The Greatest Hits', sales: 12000000},
+      { album: 'Duets', sales: 8000000},
+      { album: 'The Big Picture', sales: 7500000},
+      { album: 'Songs from the West Coast', sales: 5000000},
     ],
     genre: 'Pop',
   },
   {
-    name: 'Led Zeppelin'
+    name: 'Led Zeppelin',
     bestAlbuns: [
-      { album: , sales: },
-      { album: , sales: },
-      { album: , sales: },
-      { album: , sales: }
+      { album: 'Led Zeppelin IV', sales: 23000000},
+      { album: 'Physical Graffiti', sales: 16000000},
+      { album: 'Led Zeppelin II', sales: 12000000},
+      { album: 'Houses of the Holy', sales: 4000000},
     ],
     genre: 'Heavy metal',
   },
   {
-    name: 'Queen'
+    name: 'Queen',
     bestAlbuns: [
-      { album: , sales: },
-      { album: , sales: },
-      { album: , sales: },
-      { album: , sales: }
+      { album:  'A Night at the Opera', sales: 6000000},
+      { album: 'Sheer Heart Attack', sales: 3000000},
+      { album: 'Jazz', sales: 5000000},
+      { album: 'The Game', sales: 2500000}
     ],
     genre: 'Hard rock'
   },
   {
-    name: 'Pink Floyd'
+    name: 'Pink Floyd',
     bestAlbuns: [
-      { album: , sales: },
-      { album: , sales: },
-      { album: , sales: },
-      { album: , sales: }
+      { album: 'The Dark Side of the Moon', sales: 9500000},
+      { album: 'Animals', sales: 7000000},
+      { album: 'Wish You Were Here', sales: 6500000},
+      { album: 'Meddle', sales: 2000000},
     ],
     genre: 'Progressive rock'
   },
