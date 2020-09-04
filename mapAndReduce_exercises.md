@@ -1,11 +1,24 @@
+# *Higher order functions* - Map e Reduce
+
+## O que vamos aprender?
+
+## Você será capaz de:
+
+## Porque isso é importante?
+
+## Conteúdo
+
+### Tempo sugerido para estudo: 30 minutos
+
 ## Exercícios
 
 ### Tempo sugerido para realizar os exercícios: 60 minutos.
 
 Leia atentamente o enunciado de cada exercício e faça o que se pede! Não se esqueça de versionar o seu código no seu repositório com arquivos e `commits` específicos para cada exercício, hein?! :eyes:
 
-* Considere o array com os grandes sucessos da música britânica abaixo. Você irá utilizá-lo para resolver os exercícios 1 e 2.
+Considere o array com os grandes sucessos da música britânica abaixo. Você irá utilizá-lo para resolver os exercícios 1 e 2. 
 
+```javascript
 const topBritishBands = [
   {
     name: 'The Beatles',
@@ -58,13 +71,15 @@ const topBritishBands = [
     genre: 'Progressive rock'
   },
 ]
+```
 
-1. Exercício 1: Crie um array que contenha as cinco melhores bandas inglesas e os seus respectivos gêneros no formato BANDA - GÊNERO. Dica: você pode usar o map para esta operação.
+1. Crie um array que contenha as cinco melhores bandas inglesas e os seus respectivos gêneros no formato BANDA - GÊNERO. *Dica: você pode usar o map para esta operação.*
 
-2. Exercício 2: Crie uma função que retorne um array que mostre o nome do álbum mais vendido por cada banda. Dica: você pode usar o map combinado com o reduce para esse exercício.
+2. Crie uma função que retorne um array que mostre o nome do álbum mais vendido por cada banda. *Dica: você pode usar o map combinado com o reduce para esse exercício.*
 
-* Considere o array menu para fazer os exercícios 3 e 4. Ele contém o menu de um restaurante japonês com os itens disponíveis, o preço e a quantidade da porção que vem em cada item..
+Considere o array menu para fazer os exercícios 3 e 4. Ele contém o menu de um restaurante japonês com os itens disponíveis, o preço e a quantidade da porção que vem em cada item.
 
+```javascript
 const menu = [
   { type: 'entrada', name: 'Shimeji na manteiga', price: 18.90,  quantity: 1 },
   { type: 'Prato', name: 'sushis', price: 9.50, quantity: 14 },
@@ -73,6 +88,7 @@ const menu = [
   { type: 'Prato', name: 'uramakis', price: 30.90, quantity: 8 },
   { type: 'Sobremesa', name: 'banana caramelada', price: 11.90, quantity: 6 },
 ]
+```
 
 3. Um cliente faminto pediu o combo da casa, que contém todos os items disponíveis no menu. Calcule o valor da conta final, considerando que o restaurante cobra uma taxa de serviço de 15%. 
 
@@ -80,6 +96,7 @@ const menu = [
 
 5. Um grupo de amigos fez o seguinte pedido:
 
+```javascript
 order = {
   'shimeji na manteiga': 4,
   'hossomakis variados': 3,
@@ -87,5 +104,13 @@ order = {
   'sashimi': 3,
   'banana caramelada': 2,
 }
+```
 
 Retorne o preço total a ser cobrado considerando a quantidade pedida pelo grupo, e a taxa de serviço de 15%.
+
+## Bonus
+
+## Recursos adicionais
+
+- [Javascript Higher Order Functions: Map e Reduce do zero ao topo.](https://medium.com/@fabiosenracorrea/javascript-higher-order-functions-map-e-reduce-do-zero-ao-topo-6365784f959a)
+- [Functional javascript: how to use array reduce for more than just numbers](https://jrsinclair.com/articles/2019/functional-js-do-more-with-reduce/)
