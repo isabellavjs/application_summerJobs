@@ -1,11 +1,3 @@
-## Exercícios
-
-### Tempo sugerido para realizar os exercícios: 60 minutos.
-
-Leia atentamente o enunciado de cada exercício e faça o que se pede! Não se esqueça de versionar o seu código no seu repositório com arquivos e `commits` específicos para cada exercício, hein?! :eyes:
-
-* Considere o array com os grandes sucessos da música britânica abaixo. Você irá utilizá-lo para resolver os exercícios 1 e 2.
-
 const topBritishBands = [
   {
     name: 'The Beatles',
@@ -59,4 +51,14 @@ const topBritishBands = [
   },
 ]
 
-1. 
+// Gabarito: 
+
+// Exercício 1: Crie um array que contenha as cinco melhores bandas inglesas e os seus respectivos gêneros no formato BANDA - GÊNERO. Dica: você pode usar o map para esta operação.
+
+// Resolução comentada: Observe que o objetivo do exercício é transformar o array topBritishBands em um array contendo apenas o nome da banda e o seu gênero musical. Percebe que o array que queremos construir tem, portanto, o mesmo número de elementos que o array topBritishBands? Esse exemplo é portanto uma aplicação perfeita da HOF map! O método map nesse exercício irá mapear o array original, e criará um novo array (armazenado em bandAndAuthor) sem alterar o original. O map aplica em cada item a função passada como parâmetro, que retorna o nome da banda e o seu respectivo gênero no formato especificado.
+
+const bandAndAuthor = topBritishBands.map(item => `${item.name} - ${item.genre}`);
+console.log(bandAndAuthor);
+
+// Exercício 2: Crie um array que contenha os nomes das bandas e os melhores albuns em ordem alfabética. Inclua apenas os albuns que venderam no mínimo cinco milhões de cópias.
+
