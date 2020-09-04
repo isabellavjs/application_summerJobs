@@ -113,20 +113,28 @@ console.log(consumption);
 
 // Resolução comentada: 
 
-const prices = menu.map(item => `${item.name} - ${item.price}`);
-console.log(prices);
+const prices = menu.map(item => item.price);
+//console.log(prices);
 
-order = {
+const order = {
   'shimeji na manteiga': 4,
-  'hossomakis variados': 3,
   'sushis': 5,
   'sashimi': 3,
+  'hossomakis variados': 3,
+  'uramakis' : 2,
   'banana caramelada': 2,
 }
+console.log(Object.values(order));
 
-//const finalBill = (order) => {
-  //return Object.keys(order).reduce((total, item) => 
-    //total + (order[item] * newMenu[item]), 0)
-//}
+const finalBill = () => {
+  const quantityOrder = Object.values(order);
 
-//console.log(finalBill(order));
+  const partialPrice = menu
+  .map((item, index) => ({
+    name: item.name,
+    partialPrice: Number((quantityOrder[index] * item.price)).toFixed(2),
+  }))
+  return partialPrice;
+}
+
+console.log(finalBill(order))
