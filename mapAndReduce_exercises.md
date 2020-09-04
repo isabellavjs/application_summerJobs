@@ -59,4 +59,33 @@ const topBritishBands = [
   },
 ]
 
-1. 
+1. Exercício 1: Crie um array que contenha as cinco melhores bandas inglesas e os seus respectivos gêneros no formato BANDA - GÊNERO. Dica: você pode usar o map para esta operação.
+
+2. Exercício 2: Crie uma função que retorne um array que mostre o nome do álbum mais vendido por cada banda. Dica: você pode usar o map combinado com o reduce para esse exercício.
+
+* Considere o array menu para fazer os exercícios 3 e 4. Ele contém o menu de um restaurante japonês com os itens disponíveis, o preço e a quantidade da porção que vem em cada item..
+
+const menu = [
+  { type: 'entrada', name: 'Shimeji na manteiga', price: 18.90,  quantity: 1 },
+  { type: 'Prato', name: 'sushis', price: 9.50, quantity: 14 },
+  { type: 'Prato', name: 'sashimi', price: 32.90, quantity: 10 },
+  { type: 'Prato', name: 'hossomakis variados', price: 24.90, quantity: 6 },
+  { type: 'Prato', name: 'uramakis', price: 30.90, quantity: 8 },
+  { type: 'Sobremesa', name: 'banana caramelada', price: 11.90, quantity: 6 },
+]
+
+3. Um cliente faminto pediu o combo da casa, que contém todos os items disponíveis no menu. Calcule o valor da conta final, considerando que o restaurante cobra uma taxa de serviço de 15%. 
+
+4. Crie um objeto para o cliente faminto contendo o nome de todos os items consumidos em ordem alfabética e a quantidade de comida que ele ingeriu (isto é, leve em consideração a quantidade que vem em cada porção)
+
+5. Um grupo de amigos fez o seguinte pedido:
+
+order = {
+  'shimeji na manteiga': 4,
+  'hossomakis variados': 3,
+  'sushis': 5,
+  'sashimi': 3,
+  'banana caramelada': 2,
+}
+
+Retorne o preço total a ser cobrado considerando a quantidade pedida pelo grupo, e a taxa de serviço de 15%.
