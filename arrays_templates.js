@@ -1,14 +1,7 @@
 const countries = [
   {
-    CountryCode: 'BR',
     name: 'Brazil',
     currency: 'Brazilian real',
-    demography: {
-      population: 212559417,
-      density: 25,
-      migrants: 21200,
-      urbanPopulation: 88,
-    },
     capital: 'Brasilia',
     languages: 'Portuguese',
     leaders: [
@@ -45,15 +38,8 @@ const countries = [
     ]
   },
   {
-    CountryCode: 'CO',
     name: 'Colombia',
     currency: '	Colombian peso',
-    demography: {
-      population: 50882891,
-      density: 46,
-      migrants: 204796,
-      urbanPopulation: 80,
-    },
     capital: 'Bogotá',
     languages: 'Spanish',
     leaders: [
@@ -84,15 +70,8 @@ const countries = [
     ],
   },
   {
-    CountryCode: 'RA',
     name: 'Argentina',
     currency: 'Argentine peso',
-    demography: {
-      population: 45195774,
-      density: 17,
-      migrants: 4800,
-      urbanPopulation: 93,
-    },
     capital: 'Buenos Aires',
     languages: ['Spanish', 'English', 'Italian', 'German', 'French'],
     leaders: [
@@ -141,26 +120,19 @@ const countries = [
     ]
   },
   {
-    CountryCode: 'PE',
     name: 'Peru',
     currency: 'Peruvian nuevo sol',
-    demography: {
-      population: 32971854,
-      density: 26,
-      migrants: 99069,
-      urbanPopulation: 79,
-    },
     capital: 'Lima',
     languages: ['Spanish', 'Quéchua', 'Aymara'],
     leaders: [
       {
-        firstName: '',
+        firstName: 'Valentin',
         lastName: 'Paniagua',
         birthYear: 1936,
         year: 2000,
       },
       {
-        firstName: 'ALejandro',
+        firstName: 'Alejandro',
         lastName: 'Toledo',
         birthYear: 1946,
         year: 2001,
@@ -192,15 +164,8 @@ const countries = [
     ]
   },
   {
-    CountryCode: 'YV',
     name: 'Venezuela',
     currency: 'Venezuelan bolívar',
-    demography: {
-      population: 28435940,
-      density: 32,
-      migrants: -653249,
-      urbanPopulation: 88,
-    },
     capital: 'Caracas',
     languages: 'Spanish',
     leaders: [
@@ -231,15 +196,8 @@ const countries = [
     ]
   },
   {
-    CountryCode: 'RCH',
     name: 'Chile',
     currency: 'Chilean peso',
-    demography: {
-      population: 19116201,
-      density:	26,
-      migrants: 111708,
-      urbanPopulation: 85,
-    },
     capital: 'Santiago',
     languages: 'Spanish',
     leaders: [
@@ -264,15 +222,8 @@ const countries = [
     ]
   },
   {
-    CountryCode: 'EC',
     name: 'Ecuador',
     currency: 'United States dollar',
-    demography: {
-      population: 17643054,
-      density: 	71,
-      migrants: 36400,
-      urbanPopulation: 63,
-    },
     capital: 'Quito',
     languages: ['Spanish', 'Quechua'],
     leaders: [
@@ -315,15 +266,8 @@ const countries = [
     ]
   },
   {
-    CountryCode: 'BOL',
     name: 'Bolivia',
     currency: 'Boliviano',
-    demography: {
-      population: 11673021,
-      density: 	11,
-      migrants: -9504,
-      urbanPopulation: 69,
-    },
     capital: ['La Paz', 'Sucre'],
     languages: ['Spanish', 'Quechua', 'Aymara', 'Guarani'],
     leaders: [
@@ -372,15 +316,8 @@ const countries = [
     ]
   },
   {
-    CountryCode: 'PY',
     name: 'Paraguay',
     currency: 'Paraguayan guaraní',
-    demography: {
-      population: 7132538,
-      density: 18,
-      migrants: 	-16556,
-      urbanPopulation: 62,
-    },
     capital: 'Asunción',
     languages: ['Spanish', 'Guaraní'],
     leaders: [
@@ -423,15 +360,8 @@ const countries = [
     ]
   },
   {
-    CountryCode: 'ROU',
     name: 'Uruguay',
     currency: '	Uruguayan peso',
-    demography: {
-      population: 3473730,
-      density: 	20,
-      migrants: -3000,
-      urbanPopulation: 96,
-    },
     capital: 'Montevideo',
     languages: 'Spanish',
     leaders: [
@@ -468,15 +398,8 @@ const countries = [
     ]
   },
   {
-    CountryCode: 'GUY',
     name: 'Guyana',
     currency: 'Guyanese dollar',
-    demography: {
-      population: 786552,
-      density: 	4,
-      migrants: -6000,
-      urbanPopulation: 27,
-    },
     capital: 'Georgetown',
     languages: 'English',
     leaders: [
@@ -507,15 +430,8 @@ const countries = [
     ]
   },
   {
-    CountryCode: 'SME',
     name: 'Suriname',
     currency: '	Surinamese dollar',
-    demography: {
-      population: 586632,
-      density: 	4,
-      migrants: -1000,
-      urbanPopulation: 65,
-    },
     capital: 'Paramaribo',
     languages: ['Dutch', 'Surinamese', 'English'],
     leaders: [
@@ -539,90 +455,6 @@ const countries = [
       },
     ]
   },
-  {
-    CountryCode: 'FK',
-    name: 'French Guiana',
-    currency: 'Euro',
-    demography: {
-      population: 298682,
-      density: 	4,
-      migrants: 1200,
-      urbanPopulation: 87,
-    },
-    capital: 'Cayenne',
-    languages: 'French',
-    leaders: [
-      {
-        firstName: 'Jacques',
-        lastName: 'Chirac',
-        birthYear: 1932,
-        year: [1995, 2002],
-      },
-      {
-        firstName: 'Nicolas',
-        lastName: 'Sarkozy',
-        birthYear: 1955,
-        year: 2007,
-      },
-      {
-        firstName: 'François',
-        lastName: 'Hollande',
-        birthYear: 1954,
-        year: 2012,
-      },
-      {
-        firstName: 'Emmanuel',
-        lastName: 'Macron',
-        birthYear: 1977,
-        year: 2017,
-      },
-    ]
-  },
-  {
-    CountryCode: 'GF',
-    name: 'Falkland Islands',
-    currency: 'Falkland Islands pound',
-    demography: {
-      population: 3480,
-      density: 0,
-      migrants: 0,
-      urbanPopulation: 66,
-    },
-    capital: 'Stanley',
-    languages: 'English',
-    leaders: [
-      {
-        firstName: 'Michael',
-        lastName: 'Blanch',
-        birthYear: 1947,
-        year: 2000,
-      },
-      {
-        firstName: 'Chris',
-        lastName: 'Simpkins',
-        birthYear: 1950,
-        year: 2003,
-      },
-      {
-        firstName: 'Tim',
-        lastName: 'Thorogood',
-        birthYear: 1962,
-        year: 2008,
-      },
-      {
-        firstName: 'Keith',
-        lastName: 'Padgett',
-        birthYear: 1939,
-        year: 2012,
-      },
-      {
-        firstName: 'Barry',
-        lastName: 'Rowland',
-        birthYear: 1961,
-        year: 2016,
-      },
-    ]
-  },
 ]
 
 const menu = [
@@ -638,26 +470,40 @@ const users = [
   {
     name: 'Isabella',
     age: 28,
+    email: 'i.bella92@hotmail.com'
   },
   {
     name: 'Pedro',
-    age: 48,
+    age: 18,
+    email: 'pedro_sk8@uol.com.br'
   },
   {
     name: 'Julia',
-    age: 15
+    age: 15,
+    email: 'ju.silva@gmail.com'
   },
   {
     name: 'Carla',
     age: 30,
+    email: 'carlinhasantos@yahoo.com'
   },
   {
     name: 'Paula',
     age: 50,
+    email: 'paula_pop@hotmail.com'
   }
 ]
 
-const oddNumbers = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+const oddNumbers = [2, 4, 6, 8, 10];
+
+const multiplyByTwo = [];
+for (let index = 0; index < oddNumbers.length; index += 1) {
+  multiplyByTwo.push(oddNumbers[index] * 2);
+}
+console.log(multiplyByTwo);
+
+const multiplesTwoMap = oddNumbers.map(item => item * 2);
+console.log(multiplesTwoMap);
 
 const travellers = [
   { lastName: 'Miller', firstName: 'John', insurance: true, destinations: ['Spain', 'Portugal', 'France', 'Italy'] },
@@ -666,6 +512,11 @@ const travellers = [
   { lastName: 'Fischer', firstName: 'Linda', insurance: true, destinations: ['Australia', 'Japan']},
   { lastName: 'Fitz', firstName: 'Cleyton', insurance: false, destinations: ['India', 'Thailand', 'Vietnan', 'Dubai'] },
 ]
+const haveInsurance = travellers.map((traveller) => {
+  if (traveller.insurance) return `${traveller.firstName} ${traveller.lastName} has an insurance. Welcome abord!`;
+  else { return `${traveller.firstName} ${traveller.lastName} is not allowed to travel without an insurance`};
+})
+console.log(haveInsurance);
 
 const olympicGames = ['China', 'Brazil', 'UK', 'USA', 'Italy', 'Russia']
 const years = [2008, 2016, 2012, 1996, 1960, 2014]
@@ -722,3 +573,15 @@ const topBritishBands = [
     genre: 'Progressive rock'
   },
 ]
+
+//const newArray = arr.map(function callback(currentValue, index, array) {
+  // Code to do something;
+//})
+
+const ids = ['name', 'lastname', 'email', 'phone'];
+const elements = [];
+
+for (let index = 0; index < ids.length; index += 1) {
+  elements[index] = document.getElementById(ids(index));
+}
+console.log(elements);

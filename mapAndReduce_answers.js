@@ -111,10 +111,7 @@ console.log(consumption);
 
 // Exercício 5: Retorne o preço total a ser cobrado considerando a quantidade pedida pelo grupo, e a taxa de serviço de 15%.
 
-// Resolução comentada: 
-
-const prices = menu.map(item => item.price);
-//console.log(prices);
+// Resolução comentada: Queremos criar uma função que nos retorne um único número: o valor total da conta. Opa, reduce! Mas antes de calcular o valor final, eu devo acessar cada valor do objeto order e multiplicá-lo pelo preço dos itens consumidos. Repare que para fazer essa operação, um caminho é converter o objeto order em um array contendo apenas as quantidades consumidas. Observe que nesse caso o array contendo as quantidades tem exatamente o mesmo tamanho do menu, e o que foi consumido está na mesma ordem apresentada nesse array. O que podemos fazer portanto é mapear o array menu e multiplicar o preço de cada item pela quantidade consumida, que corresponde ao número em cada índice do array criado com as quantidades consumidas. Nesse exemplo, podemos passar dois parâmetros para o map: o valor atual do array de origem e o indice desse valor. Nesse caso, como o novo array criado a partir do objeto order tem o mesmo tamanho de menu e contém o que foi consumido na mesma ordem, as quantidades têm o mesmo índice do array de origem.
 
 const order = {
   'shimeji na manteiga': 4,
@@ -124,17 +121,477 @@ const order = {
   'uramakis' : 2,
   'banana caramelada': 2,
 }
-console.log(Object.values(order));
 
 const finalBill = () => {
   const quantityOrder = Object.values(order);
 
   const partialPrice = menu
-  .map((item, index) => ({
-    name: item.name,
-    partialPrice: Number((quantityOrder[index] * item.price)).toFixed(2),
-  }))
+  .map((item, index) => (quantityOrder[index] * item.price))
+  .reduce((total, current) =>  total + current, 0) * 1.15;
   return partialPrice;
 }
 
-console.log(finalBill(order))
+// Bonus
+const countries = [
+  {
+    name: 'Brazil',
+    currency: 'Brazilian real',
+    capital: 'Brasilia',
+    languages: 'Portuguese',
+    leaders: [
+      {
+        firstName: 'Fernando Henrique',
+        lastName: 'Cardoso',
+        birthYear: 1931,
+        year: 1998,
+      },
+      {
+        firstName: 'Luiz Inacio',
+        lastName: 'Lula da Silva',
+        birthYear: 1945,
+        year: [2002, 2006],
+      },
+      {
+        firstName: 'Dilma',
+        lastName: 'Rousseff',
+        birthYear: 1947,
+        year: [2010, 2014],
+      },
+      {
+        firstName: 'Michel',
+        lastName: 'Temer',
+        birthYear: 1940,
+        year: 2014,
+      },
+      {
+        firstName: 'Jair',
+        lastName: 'Bolsonaro',
+        birthYear: 1955,
+        year: 2018,
+      },
+    ]
+  },
+  {
+    name: 'Colombia',
+    currency: '	Colombian peso',
+    capital: 'Bogotá',
+    languages: 'Spanish',
+    leaders: [
+      {
+        firstName: 'Andres',
+        lastName: 'Pastrana Arango',
+        birthYear: 1954,
+        year: 1998,
+      },
+      {
+        firstName: 'Alvaro',
+        lastName: 'Uribe Velez',
+        birthYear: 1952,
+        year: 2002,
+      },
+      {
+        firstName: 'Juan Manuel',
+        lastName: 'Santos',
+        birthYear: 1951,
+        year: 2010,
+      },
+      {
+        firstName: 'Ivan',
+        lastName: 'Duarque Marquez',
+        birthYear: 1976,
+        year: 2018,
+      },
+    ],
+  },
+  {
+    name: 'Argentina',
+    currency: 'Argentine peso',
+    capital: 'Buenos Aires',
+    languages: ['Spanish', 'English', 'Italian', 'German', 'French'],
+    leaders: [
+      {
+        firstName: 'Fernando',
+        lastName: 'de la Rua',
+        birthYear: 1937,
+        year: 1999,
+      },
+      {
+        firstName: 'Adolfo',
+        lastName: 'Rodríguez Saá',
+        birthYear: 1947,
+        year: 2001,
+      },
+      {
+        firstName: 'Eduardo',
+        lastName: 'Duhalde',
+        birthYear: 1941,
+        year: 2002,
+      },
+      {
+        firstName: 'Nestor',
+        lastName: 'Kirchner',
+        birthYear: 1950,
+        year: 2003,
+      },
+      {
+        firstName: 'Cristina',
+        lastName: 'Fernández de Kirchner',
+        birthYear: 1953,
+        year: [2007, 2011],
+      },
+      {
+        firstName: 'Mauricio',
+        lastName: 'Macri',
+        birthYear: 1959,
+        year: 2015,
+      },
+      {
+        firstName: 'Alberto',
+        lastName: 'Fernandez',
+        birthYear: 1959,
+        year: 2019,
+      },
+    ]
+  },
+  {
+    name: 'Peru',
+    currency: 'Peruvian nuevo sol',
+    capital: 'Lima',
+    languages: ['Spanish', 'Quéchua', 'Aymara'],
+    leaders: [
+      {
+        firstName: 'Valentin',
+        lastName: 'Paniagua',
+        birthYear: 1936,
+        year: 2000,
+      },
+      {
+        firstName: 'Alejandro',
+        lastName: 'Toledo',
+        birthYear: 1946,
+        year: 2001,
+      },
+      {
+        firstName: 'Alan',
+        lastName: 'Garcia Perez',
+        birthYear: 1949,
+        year: 2006,
+      },
+      {
+        firstName: 'Ollanta',
+        lastName: 'Humala',
+        birthYear: 1962,
+        year: 2011,
+      },
+      {
+        firstName: 'Pedro',
+        lastName: 'Pablo Kuczynski',
+        birthYear: 1938,
+        year: 2016,
+      },
+      {
+        firstName: 'Martin',
+        lastName: 'Vizcarra',
+        birthYear: 1963,
+        year: 2018,
+      },
+    ]
+  },
+  {
+    name: 'Venezuela',
+    currency: 'Venezuelan bolívar',
+    capital: 'Caracas',
+    languages: 'Spanish',
+    leaders: [
+      {
+        firstName: 'Hugo',
+        lastName: 'Chavez',
+        birthYear: 1954,
+        year: [2001, 2002, 2007, 2013]
+      },
+      {
+        firstName: 'Pedro',
+        lastName: 'Carmona Estanga',
+        birthYear: 1941,
+        year: 2002,
+      },
+      {
+        firstName: 'Diosdado',
+        lastName: 'Cabello',
+        birthYear: 1963,
+        year: 2002,
+      },
+      {
+        firstName: 'Nicolas',
+        lastName: 'Maduro',
+        birthYear: 1962,
+        year: 2013,
+      },
+    ]
+  },
+  {
+    name: 'Chile',
+    currency: 'Chilean peso',
+    capital: 'Santiago',
+    languages: 'Spanish',
+    leaders: [
+      {
+        firstName: 'Ricardo',
+        lastName: 'Lagos',
+        birthYear: 1938,
+        year: 2000,
+      },
+      {
+        firstName: 'Michelle',
+        lastName: 'Bachelet',
+        birthYear: 1951,
+        year: [2006, 2014],
+      },
+      {
+        firstName: 'Sebastian',
+        lastName: 'Piñera',
+        birthYear: 1949,
+        year: [2010, 2018]
+      },
+    ]
+  },
+  {
+    name: 'Ecuador',
+    currency: 'United States dollar',
+    capital: 'Quito',
+    languages: ['Spanish', 'Quechua'],
+    leaders: [
+      {
+        firstName: 'Jamil',
+        lastName: 'Mahuad',
+        birthYear: 1949,
+        year: 1998,
+      },
+      {
+        firstName: 'Gustavo',
+        lastName: 'Noboa',
+        birthYear: 1937,
+        year: 2000,
+      },
+      {
+        firstName: 'Lucio Edwin',
+        lastName: 'Gutiérrez Borbúa',
+        birthYear: 1957,
+        year: 2003,
+      },
+      {
+        firstName: 'Alfredo',
+        lastName: 'Palacio',
+        birthYear: 1939,
+        year: 2005,
+      },
+      {
+        firstName: 'Rafael',
+        lastName: 'Correa',
+        birthYear: 1963,
+        year: 2007,
+      },
+      {
+        firstName: 'Lenín',
+        lastName: 'Moreno',
+        birthYear: 1953,
+        year: 2017,
+      },
+    ]
+  },
+  {
+    name: 'Bolivia',
+    currency: 'Boliviano',
+    capital: ['La Paz', 'Sucre'],
+    languages: ['Spanish', 'Quechua', 'Aymara', 'Guarani'],
+    leaders: [
+      {
+        firstName: 'Hugo',
+        lastName: 'Banzer',
+        birthYear: 1926,
+        year: 1997,
+      },
+      {
+        firstName: 'Jorge',
+        lastName: 'Quiroga',
+        birthYear: 1960,
+        year: 2001,
+      },
+      {
+        firstName: 'Gonzalo',
+        lastName: 'Sánchez de Lozada',
+        birthYear: 1930,
+        year: 2002,
+      },
+      {
+        firstName: 'Carlos',
+        lastName: 'Mesa',
+        birthYear: 1953,
+        year: 2003,
+      },
+      {
+        firstName: 'Eduardo',
+        lastName: 'Rodríguez',
+        birthYear: 1956,
+        year: 2005,
+      },
+      {
+        firstName: 'Evo',
+        lastName: 'Morales',
+        birthYear: 1959,
+        year: 2006,
+      },
+      {
+        firstName: 'Jeanine',
+        lastName: 'Áñez',
+        birthYear: 1967,
+        year: 2019,
+      },
+    ]
+  },
+  {
+    name: 'Paraguay',
+    currency: 'Paraguayan guaraní',
+    capital: 'Asunción',
+    languages: ['Spanish', 'Guaraní'],
+    leaders: [
+      {
+        firstName: 'Luis',
+        lastName: 'Ángel González Macchi',
+        birthYear: 1947,
+        year: 1999,
+      },
+      {
+        firstName: 'Nicanor',
+        lastName: 'Duarte Frutos',
+        birthYear: 1956,
+        year: 2003,
+      },
+      {
+        firstName: 'Fernando',
+        lastName: 'Lugo',
+        birthYear: 1951,
+        year: 2008,
+      },
+      {
+        firstName: 'Federico',
+        lastName: 'Franco',
+        birthYear: 1962,
+        year: 2012,
+      },
+      {
+        firstName: 'Horacio',
+        lastName: 'Cartes',
+        birthYear: 1956,
+        year: 2013,
+      },
+      {
+        firstName: 'Mario',
+        lastName: 'Abdo Benítez',
+        birthYear: 1971,
+        year: 2018,
+      },
+    ]
+  },
+  {
+    name: 'Uruguay',
+    currency: '	Uruguayan peso',
+    capital: 'Montevideo',
+    languages: 'Spanish',
+    leaders: [
+      {
+        firstName: 'Julio',
+        lastName: 'María Sanguinetti',
+        birthYear: 1936,
+        year: 2000,
+      },
+      {
+        firstName: 'Jorge',
+        lastName: 'Batlle',
+        birthYear: 1927,
+        year: 2005,
+      },
+      {
+        firstName: 'Tabaré',
+        lastName: 'Vázquez',
+        birthYear: 1940,
+        year: 2010,
+      },
+      {
+        firstName: 'José',
+        lastName: 'Mujica',
+        birthYear: 1935,
+        year: 2015,
+      },
+      {
+        firstName: 'Lacalle',
+        lastName: 'Pou',
+        birthYear: 1973,
+        year: 2020,
+      },
+    ]
+  },
+  {
+    name: 'Guyana',
+    currency: 'Guyanese dollar',
+    capital: 'Georgetown',
+    languages: 'English',
+    leaders: [
+      {
+        firstName: 'Bharrat',
+        lastName: 'Jagdeo',
+        birthYear: 1964,
+        year: 1999,
+      },
+      {
+        firstName: 'Donald',
+        lastName: 'Ramotar',
+        birthYear: 1950,
+        year: 2011,
+      },
+      {
+        firstName: 'David',
+        lastName: 'Granger',
+        birthYear: 1942,
+        year: 2015,
+      },
+      {
+        firstName: 'Irfaan',
+        lastName: 'Ali',
+        birthYear: 1942,
+        year: 2020,
+      },
+    ]
+  },
+  {
+    name: 'Suriname',
+    currency: '	Surinamese dollar',
+    capital: 'Paramaribo',
+    languages: ['Dutch', 'Surinamese', 'English'],
+    leaders: [
+      {
+        firstName: 'Ronald',
+        lastName: 'Venetiaan',
+        birthYear: 1937,
+        year: 2000,
+      },
+      {
+        firstName: 'Dési',
+        lastName: 'Bouterse',
+        birthYear: 1945,
+        year: 2010,
+      },
+      {
+        firstName: 'Chan',
+        lastName: 'Santokhi',
+        birthYear: 1959,
+        year: 2020,
+      },
+    ]
+  },
+]
+
+// Bonus 1:
+
+const countriesAndLeaders = countries.map(item => `${item.name} teve ${item.leaders.length} líderes políticos no século XX`)
+console.log(countriesAndLeaders);
