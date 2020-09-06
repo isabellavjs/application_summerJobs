@@ -14,7 +14,7 @@ Hoje vamos aprender duas _Higher Order Functions_ **muito** utilizadas por nós,
 
 ## Porque isso é importante?
 
-Como você pode perceber no exemplo introdutório, quando estamos trabalhando com dados muito numerosos é muito importante escrever códigos expressivos, legíveis e que possam ser facilmente reimplementados. As HOF nos ajudam bastante nessa tarefa, e com o `Array.map` e o `Array.reduce` em mãos você poderá fazer muito mais!
+O exemplo introdutório nos mostra que, quando estamos trabalhando com dados numerosos, é muito importante escrever códigos expressivos, legíveis e que possam ser facilmente reimplementados. As HOF nos ajudam bastante nessa tarefa, e com o `Array.map` e o `Array.reduce` em mãos você poderá fazer muito mais!
 
 ## Conteúdo
 
@@ -22,32 +22,32 @@ Como você pode perceber no exemplo introdutório, quando estamos trabalhando co
 
 ## Array.map
 
-Como vimos anterirormente, _Higher Order Functions_ são funcões que podem receber e/ou retornar outra função. Uma grande vantagem de HOFs é que elas podem ser reutilizadas. 
+Como vimos anterirormente, _Higher Order Functions_ são funções que podem receber e/ou retornar outra função. Uma grande vantagem das HOFs é que elas podem ser reutilizadas. 
 
-O método `map` é uma HOF e recebe uma única função como argumento. Antes de destrinchá-lo em um exemplo, vamos nos atentar ao que o `map` recebe/retorna:
+O método `map` é uma HOF e recebe uma única função como argumento. Antes de destrinchá-lo com exemplos, vamos nos atentar ao que o `map` recebe/retorna:
 
-1.  O `Array.map` é executado em um array, e retornará um **novo array** com a **mesma quantidade de elementos** do **array original**;
-2.  O método `Array.map` **recebe uma única função** como parâmetro, que chamaremos de **callback**. Essa função será executada uma vez para cada elemento do array original. 
+1.  O método `Array.map` **recebe uma única função** como parâmetro, que chamaremos de **callback**. Essa função será executada uma vez para cada elemento do array original; 
+2.  O `Array.map` é executado em um array, e retornará um **novo array** com a **mesma quantidade de elementos** do **array original**.
 
 Mas e a função callback, quais parâmetros ela recebe? A callback recebe três parâmetros, como pode ser visto a seguir:
 
 ```javascript
 const newArray = arr.map(function callback(currentValue, index, array){
   // Code to do something;
-})
+});
 ```
 
 1.  O parâmetro _currentValue_ corresponde ao elemento do array original em que a função está sendo aplicada.
 2. _index_ é a posição desse mesmo elemento. Esse parâmetro é opcional.
 3. _array_ corresponde ao array original em que a função é aplicada. Esse argumento também é opcional.
 
-Em outras palavras, o método map irá executar a função passada como callback uma vez para cada elemento do array que foi passado (no exemplo, arr). O retorno da callback será um novo elemento que será inserido na mesma posição do elemento em que a função é executada. Ao fim da última iteração, teremos um novo array (newArray) com o retorno da função callback!
+Em outras palavras, o método map irá executar a função callback uma vez para cada elemento (_currentValue_) do array que lhe foi passado (no exemplo, _arr_). O retorno da callback será um novo elemento que será inserido na mesma posição do elemento em que a função é executada. Ao fim da última iteração, teremos um novo array (_newArray_) com o retorno da função callback!
 
-Observe que **utilizamos o map** quando queremos **transformar** um array a partir de um outro array, mas mantendo a mesma quantidade de elementos do original.  
+Observe que **utilizamos o map** quando queremos **transformar** um array a partir de um outro array, mas **mantendo a mesma quantidade de elementos do original**.  
 
 Vamos ver na prática como isso funciona.
 
-Como você faria para multiplicar por dois cada elemento do array abaixo, retornando o resultado em um novo array? Tente fazer essa operação com um for.
+Como você faria para multiplicar por dois cada elemento do array abaixo, retornando o resultado em um novo array? Primeiro, tente fazer essa operação com um for antes de prosseguir.
 
 ```javascript
 const oddNumbers = [2, 4, 6, 8, 10];
@@ -75,29 +75,198 @@ console.log(oddNumbers); // [2, 4, 6, 8, 10]
 
 Você consegue perceber que utilizando o map chegamos ao mesmo resultado com menos declarações, de uma forma muito mais direta? A grande vantagem do map é pegar uma função trivial, como uma simples multiplicação, e transformá-la em uma super-função muito mais eficiente, que será executada em todo o array com apenas uma chamada. Por fim, o map retornará um novo array com o resultado da multiplicação aplicado a cada item sem alterar o array oddNumbers. 
 
-Veja como o map é capaz de tornar até códigos simples em um código muito mais legível, direto e fácil de ser reutilizado - afinal, você não precisaria de recriar o map caso quisesse realizar essa multiplicação novamente em um outro array, como aconteceria com o loop for.
+Veja como o map é capaz de tornar até códigos simples em um código muito mais legível, direto e fácil de ser reutilizado - afinal, você não precisaria de recriar o map caso quisesse realizar essa multiplicação novamente em um outro array, como aconteceria com o loop `for`.
 
-Outra grande vantagem do método map é que você pode criar regras de negócio para serem aplicadas a elementos específicos do array de origem. Como você faria para construir um array com uma mensagem de boas-vindas para viajantes com seguro, e uma mensagem proibindo o embarque de viajantes sem seguro? Considere o array travellers abaixo e tente fazer esse exercício!
+Outra grande vantagem do método map é que você pode criar regras de negócio para serem aplicadas a elementos específicos do array de origem. Como você faria para converter as strings de um array em números, para que todos os elementos do novo array sejam números? Considere o array worldCupTitles abaixo e tente fazer esse exercício utilizando o `map` e o `for`!
 
 ```javascript
-const travellers = [
-  { lastName: 'Miller', firstName: 'John', insurance: true, destinations: ['Spain', 'Portugal', 'France', 'Italy'] },
-  { lastName: 'Carey', firstName: 'Mariah', insurance: true, destinations: ['England', 'Scotland', 'Belgium'] },
-  { lastName: 'Klein', firstName: 'Kevin', insurance: false, destinations: ['China'] },
-  { lastName: 'Fischer', firstName: 'Linda', insurance: true, destinations: ['Australia', 'Japan']},
-  { lastName: 'Fitz', firstName: 'Cleyton', insurance: false, destinations: ['India', 'Thailand', 'Vietnan', 'Dubai'] },
+const worldCupTitles = [1958, '1962', '1970', '1994', 2002];
+```
+
+Com o for, uma solução seria: 
+
+```javascript
+const numbers = [];
+
+for (let index = 0; index < worldCupTitles.length; index += 1) {
+  if (typeof worldCupTitles[index] === 'string') {
+    const convertToNumbers = parseInt(worldCupTitles[index]);
+    numbers.push(convertToNumbers);
+  } else {
+    numbers.push(worldCupTitles[index]);
+  }
+}
+
+console.log(numbers); // [ 1958, 1962, 1970, 1994, 2002 ]
+```
+
+Já com o map, teríamos:
+
+```javascript
+const onlyNumbers = worldCupTitles.map((year) => {
+  if (typeof year === 'string') {
+    return parseInt(year);
+  }
+  return year
+});
+
+console.log(onlyNumbers); // [ 1958, 1962, 1970, 1994, 2002 ]
+```
+
+Observe que queremos apenas transformar as strings do array worldCupTitles para que o novo array contenha apenas números, sem necessariamente modificar o array original. Nesse exemplo, usamos condicionais para checar se o tipo do elemento que está sendo iterado é uma string para, caso positivo, convertê-lo em um número utilizando a função [parseInt()](https://www.w3schools.com/jsref/jsref_parseint.asp).
+
+Você pode aplicar mais de uma regra de negócio dentro de um map. Mas contrua a callback pensando em como é o elemento que ela irá receber como parâmetro, e como você quer que ele seja ao final da operação. O map irá aplicar essa função callback em cada item do array, retornando um novo array com as transformações passadas.
+
+Por fim, vamos ver um exemplo onde o map foi utilizado para manipular um objeto em um array. O `Array.map` pode ser usado para iterar objetos assim como fazemos com arrays. Podemos construir uma callback que modifique o conteúdo de cada objeto e retorne um novo array contendo o objeto modificado. Que tal praticarmos um pouco a manipulação de um objeto utilizando o map? Considere o array shopCart a seguir. Utilizando o map, tente modificá-lo de forma que exista apenas dois pares chave-valor. A primeira chave refere-se ao nome do produto, e recebe a quantidade comprada. A segunda chave será o valor da compra parcial, ou seja, _quantidade x preço_.
+
+```javascript
+const shopCart = [
+  {
+    product: 'Pants',
+    quantity: 2,
+    price: 17.99
+  },
+  {
+    product: 'Dress',
+    quantity: 4,
+    price: 35.99,
+  },
+  {
+    product: 'Shoes',
+    quantity: 3,
+    price: 30.99
+  }
 ]
 ```
 
-Com o map, uma solução seria: 
+Resolução:
 
 ```javascript
-const haveInsurance = travellers.map((traveller) => {
-  if (traveller.insurance) return `${traveller.firstName} ${traveller.lastName} has an insurance. Welcome abord!`;
-  else {return `${traveller.firstName} ${traveller.lastName} is not allowed to travel without an insurance`};
+const shopCartByItem = shopCart.map((item) => {
+  const newObject = {};
+
+  newObject[item.product] = item.quantity;
+  newObject.partialPrice = item.quantity * item.price;
+
+  return newObject;
 })
-console.log(haveInsurance);
+
+console.log(shopCartByItem);
+
+// Resultado esperado:
+
+[
+  { Pants: 2, partialPrice: 35.98 },
+  { Dress: 4, partialPrice: 143.96 },
+  { Shoes: 3, partialPrice: 92.97 }
+]
 ```
+Nesse exemplo, a função callback cria um novo objeto e atribui a ele as modificações necessárias usando notações de objeto. O retorno da callback é justamente esse novo objeto, que é retornado dentro do array shopCartByItem. Observe que tanto o array original (shopCart) quanto o novo array (shopCartByItem) possuem a mesma quantidade de elementos. O map será muito utilizado durante a sua carreira como desenvolvedor para processar e condensar dados antes de repassá-los para alguma outra aplicação (como uma API).
+
+## Array.reduce
+
+Antes de entendermos o método `Array.reduce` observe atentamente a sua sintaxe abaixo:
+
+```javascript
+  const result = arr.reduce(function callback(accumulator, currentValue) {
+    // Code to do something;
+    return resultAccumulator
+  }, initialValue);
+```
+
+Assim como o `Array.map`, o método `Array.reduce` também é uma HOF que recebe como parâmetro uma única função que será executada para cada item de um array. No entanto, esse método tem uma assinatura  bem diferente do map. Alguns pontos de atenção:
+
+* O retorno do reduce **não é necessariamente um array**. Como será visto em breve, o reduce retornará o valor do parâmetro _accumulator_ depois de todas as iterações. Por enquanto, tenha em mente que o _accumulator_  e o retorno do reduce podem ser um número, uma string, um array ou até mesmo um objeto. Você verá em breve que essa característica é uma das responsáveis por fazer do reduce um método tão versátil! 
+* A função callback que passamos para o reduce recebe pelo menos dois parâmetros obrigatórios (_accumulator_ e _currentValue_);
+* O método `Array.reduce` pode receber um segundo parâmetro opcional: _initialValue_.
+
+Com essas diferenças em mente, assim como fizemos com o map, vamos nos perguntar: o que é passado para o `Array.reduce`, e o que ele irá nos retornar?
+
+Vamos destrinchar a função callback que o reduce recebe como parâmetro. Neste ponto, você já sabe que:
+
+* Esta função será executada para cada elemento do array passado para o reduce;
+* A callback tem pelo menos dois parâmetros obrigatórios.
+
+Como a função callback tem uma assinatura diferente das funções passadas para as demais HOF, vamos chamá-la aqui de reducer para melhor ilustrar o que essa função faz:
+
+```javascript
+function reducer(accumulator, currentValue, index, array) {
+  //  Code to do something;
+  return resultAccumulator
+}
+```
+
+Além dos dois parâmetros obrigatórios, a função `reducer` também recebe dois parâmetros opcionais (_index_ e _array_).
+
+1. O parâmetro _accumulator_ é uma variável que salvará o resultado de cada iteração. Ele **acumula** o resultado após a função ser executada para o elemento que está sendo iterado. Quando a última iteração for concluída, o _accumulator_ terá acumulado o resultado de cada iteração;
+2. CurrentValue é o elemento do array passado ao reducer no qual a função reducer está sendo executada;
+3. O index corresponde à posição do elemento do array original no momento em que a função é executada. Ou seja, a posição do currentValue;
+4. O array corresponde ao array original passado ao `Array.reduce`. A função reducer será aplicada para cada elemento desse array.
+
+Vamos entender o método reduce com um exemplo prático. considere o array numbers abaixo. Como você faria para somá-lo? Tente fazer esse exercício antes de prosseguir.
+
+```javascript
+const numbers = [1, 5, 8, 54, 20];
+```
+
+Utilizando o `for`, calculamos a soma dos números do array numbers como sendo:
+
+```javascript
+let resultSum = 0; // Variável para armazenar o valor da soma.
+for (let index = 0; index < numbers.length; index += 1) {
+  resultSum += numbers[index]; // A cada iteração, o resultado da soma é "acumulado" e atribuído a resultSum. 
+}
+
+console.log(resultSum); // 88
+```
+
+Utilizando o reduce:
+
+```javascript
+const getSum = (result, number) => result + number; // 'getSum' é a função callback que passamos para o reduce. 'result' é o accumulator, e armazenará o resultado da soma a cada iteração.
+const resultSum = numbers.reduce(getSum);
+
+console.log(resultSum); // 88
+
+//  Refatorando a função acima:
+
+const resultSum = numbers.reduce((result, number) => result + number);
+
+console.log(resultSum); // 88
+```
+
+A tabela abaixo representa o que acontece com cada parâmetro da callback quando ela é executada. Observe que essa função será chamada **quatro vezes** e que o acumulador "carrega" o resultado da última iteração.
+
+Chamada | result (accumulator) | number (currentValue) | index (opcional) | Retorno
+------------ | ------------- | ------------- | ------------- | -------------
+Primeira chamada | 1 | 5 | 1 | 6
+Segunda chamada | 6 | 8 | 2 | 14
+Terceira chamada | 14 | 54 | 3 | 68
+Quarta chamada | 68 | 20 | 4 | 88
+
+Você consegue perceber as diferenças entre a solução com o `for` e `reduce`? Tente listá-las antes de prosseguir para fixar o conteúdo!
+
+Outra vantagem do reduce é atribuir um valor ao acumulador antes de executar a função callback. Assim, na primeira iteração o acumulador terá o valor especificado no parâmetro _initialValue_. Quando não passamos um valor inicial, o acumulador assume o valor do elemento na posição 0 do array que será processado. 
+
+Rode o código abaixo no seu editor e veja o que acontece!
+
+```javascript
+const resultSum = numbers.reduce((result, number) => result + number, 10);
+
+console.log(resultSum); // 98
+```
+
+Comparando o map e o reduce, note que enquanto o método Array.map **transforma** um array em um novo array com as mesmas dimensões, o método Array.reduce **reduz** o array passado a um único valor. Mas **atenção**: como explicamos no início dessa sessão o reduce não irá necessariamente reduzir uma estrutura de array a um único número. Exemplos numéricos são ótimos para enxergar com clareza como o método reduce funciona. Mas podemos ir ~~ao infinito e~~ além com o reduce manipulando arrays e objetos, como veremos nos exemplos práticos a seguir.
+
+// Exemplo prático para retornar um objeto
+
+// Exemplo prático usando condicionais + entendendo o retorno do reduce
+
+// Combinando o reduce e o map
+
+
+
+
 
 ## Exercícios
 
