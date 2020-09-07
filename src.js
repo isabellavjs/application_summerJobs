@@ -53,7 +53,7 @@ const topBritishBands = [
 
 // Ex 1
 
-const bandAndAuthor = topBritishBands.map(item => `${item.name} - ${item.genre}`);
+const bandAndAuthor = topBritishBands.map((item) => `${item.name} - ${item.genre}`)
 
 // Ex 2
 

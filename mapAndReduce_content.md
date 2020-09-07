@@ -300,7 +300,7 @@ console.log(summaryResult); // { totalQuantity: 3, totalPrice: 273.9 }
 
 A partir de um array contendo três objetos, construímos um único objeto com uma nova estrutura. Perceba que nesse exemplo o acumulador **não é um número**. Note também que os parâmetros que passamos para a callback (accumulator e item) **não são do mesmo tipo**. Antes de começar a resolver qualquer problema com o `reduce`, pense no que você está passando para a callback e como essa função irá processá-los. Outro ponto de atenção aqui é o retorno da callback. Observe que o acumulador que retornamos contém as modificações implementadas por essa função. O que aconteceria se você esquecesse o retorno da callback? Faça esse teste no seu editor antes de prosseguir!
 
-Antes de praticar o que aprendemos com os exercícios, vamos recaptular o que vimos com o diagrama abaixo. Além do `map` e `reduce`, o diagrama também inclui outros métodos que são muito utilizados - como o `forEach`, `find`, `filter`, `some`, `every` e o `includes`. Se você ainda não está familiarizado com todas eles, não se preocupe! Tente abstrair o que queremos retornar com cada método, e procure pesquisar aqueles que você ainda não conhece.
+Antes de praticar o que aprendemos com os exercícios, vamos recaptular o que vimos com o diagrama abaixo. Além do `map` e `reduce`, o diagrama também inclui outros métodos que são muito utilizados - como o `forEach`, `find`, `filter`, `some`, `every` e o `includes`. Se você ainda não está familiarizado com todos eles, não se preocupe! Tente abstrair o que queremos retornar com cada método, e procure pesquisar aqueles que você ainda não conhece.
 
 ![Diagram array methods](img.png)
 
@@ -607,7 +607,7 @@ const countries = [
   },
 ]
 ```
-1. Crie um array que imprima para cada país fundador a seguinte frase frase: "NOME_DO_PAÍS teve NÚMERO_LÍDERES_POLÍTICOS no século XX".
+1. Crie um array que contenha para cada país fundador a seguinte frase frase: "NOME_DO_PAÍS teve NÚMERO_LÍDERES_POLÍTICOS no século XX".
 
 2. Calcule a idade média dos presidentes atuais quando eles tomaram posse.
 
@@ -615,3 +615,6 @@ const countries = [
 
 - [Javascript Higher Order Functions: Map e Reduce do zero ao topo.](https://medium.com/@fabiosenracorrea/javascript-higher-order-functions-map-e-reduce-do-zero-ao-topo-6365784f959a)
 - [Functional javascript: how to use array reduce for more than just numbers](https://jrsinclair.com/articles/2019/functional-js-do-more-with-reduce/)
+- [Javascript: quando devo usar o forEach e map?](https://www.alura.com.br/artigos/javascript-quando-devo-usar-foreach-e-map)
+- [Array.prototype.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+- [Array.prototype.reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)

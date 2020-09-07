@@ -2,50 +2,50 @@ const topBritishBands = [
   {
     name: 'The Beatles',
     bestAlbuns: [
-      { album: 'Sgt. Pepper Lonely Hearts Club Band' , sales: 32000000},
-      { album: 'Revolver', sales: 27000000},
-      { album: 'Rubber Soul', sales: 16500000},
-      { album: 'The Beatles', sales: 16000000}
+      { album: 'Sgt. Pepper Lonely Hearts Club Band', sales: 32000000 },
+      { album: 'Revolver', sales: 27000000 },
+      { album: 'Rubber Soul', sales: 16500000 },
+      { album: 'The Beatles', sales: 16000000 }
     ],
     genre: 'Pop'
   },
   {
     name: 'Elton John',
     bestAlbuns: [
-      { album: 'One Night Only -- The Greatest Hits', sales: 12000000},
-      { album: 'Duets', sales: 8000000},
-      { album: 'The Big Picture', sales: 7500000},
-      { album: 'Songs from the West Coast', sales: 5000000},
+      { album: 'One Night Only -- The Greatest Hits', sales: 12000000 },
+      { album: 'Duets', sales: 8000000 },
+      { album: 'The Big Picture', sales: 7500000 },
+      { album: 'Songs from the West Coast', sales: 5000000 },
     ],
     genre: 'Pop',
   },
   {
     name: 'Led Zeppelin',
     bestAlbuns: [
-      { album: 'Led Zeppelin IV', sales: 23000000},
-      { album: 'Physical Graffiti', sales: 16000000},
-      { album: 'Led Zeppelin II', sales: 12000000},
-      { album: 'Houses of the Holy', sales: 4000000},
+      { album: 'Led Zeppelin IV', sales: 23000000 },
+      { album: 'Physical Graffiti', sales: 16000000 },
+      { album: 'Led Zeppelin II', sales: 12000000 },
+      { album: 'Houses of the Holy', sales: 4000000 },
     ],
     genre: 'Heavy metal',
   },
   {
     name: 'Queen',
     bestAlbuns: [
-      { album:  'A Night at the Opera', sales: 6000000},
-      { album: 'Sheer Heart Attack', sales: 3000000},
-      { album: 'Jazz', sales: 5000000},
-      { album: 'The Game', sales: 2500000}
+      { album: 'A Night at the Opera', sales: 6000000 },
+      { album: 'Sheer Heart Attack', sales: 3000000 },
+      { album: 'Jazz', sales: 5000000 },
+      { album: 'The Game', sales: 2500000 }
     ],
     genre: 'Hard rock'
   },
   {
     name: 'Pink Floyd',
     bestAlbuns: [
-      { album: 'The Dark Side of the Moon', sales: 9500000},
-      { album: 'Animals', sales: 7000000},
-      { album: 'Wish You Were Here', sales: 6500000},
-      { album: 'Meddle', sales: 2000000},
+      { album: 'The Dark Side of the Moon', sales: 9500000 },
+      { album: 'Animals', sales: 7000000 },
+      { album: 'Wish You Were Here', sales: 6500000 },
+      { album: 'Meddle', sales: 2000000 },
     ],
     genre: 'Progressive rock'
   },
@@ -80,7 +80,7 @@ const reportBestBands = (arrayBands) => {
 // Resolução comentada: O objetivo desse exercício é, a partir do array menu, calcular o preço total do cliente. Ou seja, esperamos ter um único número no final, que corresponde ao total do pedio mais a taxa de serviço de 15 %. Percebe como queremos reduzir o array menu a um único número? Então essa é uma aplicação do reduce! Aqui, somamos o preço de cada item do menu ao total, que acumula essa soma a cada iteração. Como o retorno do reduce é um número contendo o total do pedido, podemos tratá-lo como tal e multiplicar esse retorno por 1.15 para calcular a conta final.
 
 const menu = [
-  { type: 'entrada', name: 'shimeji na manteiga', price: 18.90,  quantity: 1 },
+  { type: 'entrada', name: 'shimeji na manteiga', price: 18.90, quantity: 1 },
   { type: 'Prato', name: 'sushis', price: 9.50, quantity: 14 },
   { type: 'Prato', name: 'sashimi', price: 32.90, quantity: 10 },
   { type: 'Prato', name: 'hossomakis variados', price: 24.90, quantity: 6 },
@@ -117,7 +117,7 @@ const order = {
   'sushis': 5,
   'sashimi': 3,
   'hossomakis variados': 3,
-  'uramakis' : 2,
+  'uramakis': 2,
   'banana caramelada': 2,
 }
 
@@ -125,8 +125,8 @@ const finalBill = () => {
   const quantityOrder = Object.values(order);
 
   const partialPrice = menu
-  .map((item, index) => (quantityOrder[index] * item.price))
-  .reduce((total, current) =>  total + current, 0) * 1.15;
+    .map((item, index) => (quantityOrder[index] * item.price))
+    .reduce((total, current) => total + current, 0) * 1.15;
   return partialPrice;
 }
 
@@ -334,20 +334,16 @@ const countries = [
 // Bonus 1:
 
 const countriesAndLeaders = countries
-.map(item => `${item.name} teve ${item.leaders.length} líderes políticos no século XX`);
+  .map(item => `${item.name} teve ${item.leaders.length} líderes políticos no século XX`);
 
 // Bonus 2:
 
 const currentLeaderAverageAge = countries
-.map(leader => {
-  const arrLeaders = leader.leaders;
-  const currentLeader = arrLeaders[arrLeaders.length -1];
-  return currentLeader;
-})
-.reduce((accumulator, currentValue) => (
-  accumulator + (currentValue.year - currentValue.birthYear)
-), 0) / countries.length;
-
-console.log(currentLeaderAverageAge);
-
-// Bonus 3:
+  .map((leader) => {
+    const arrLeaders = leader.leaders;
+    const currentLeader = arrLeaders[arrLeaders.length - 1];
+    return currentLeader;
+  })
+  .reduce((accumulator, currentValue) => (
+    accumulator + (currentValue.year - currentValue.birthYear)
+  ), 0) / countries.length;

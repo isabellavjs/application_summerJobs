@@ -154,6 +154,23 @@ const finalBill = () => {
 
 ## Bônus
 
-1. Crie um array que imprima para cada país fundador a seguinte frase frase: "'NOME_DO_PAÍS teve  NÚMERO_LIDERES_POLÍTICOS no século XX".
+1. Crie um array que contenha para cada país fundador a seguinte frase frase: "'NOME_DO_PAÍS teve  NÚMERO_LIDERES_POLÍTICOS no século XX".
+
+```javascript
+const countriesAndLeaders = countries
+  .map(item => `${item.name} teve ${item.leaders.length} líderes políticos no século XX`);
+```
 
 2. Calcule a idade média dos presidentes atuais quando eles tomaram posse.
+
+```javascript
+const currentLeaderAverageAge = countries
+  .map((leader) => {
+    const arrLeaders = leader.leaders;
+    const currentLeader = arrLeaders[arrLeaders.length - 1];
+    return currentLeader;
+  })
+  .reduce((accumulator, currentValue) => (
+    accumulator + (currentValue.year - currentValue.birthYear)
+  ), 0) / countries.length;
+```
