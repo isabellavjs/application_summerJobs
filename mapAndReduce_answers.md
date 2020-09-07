@@ -99,7 +99,7 @@ const menu = [
 
 3. Um cliente faminto pediu o combo da casa, que contém todos os items disponíveis no menu. Calcule o valor da conta final, considerando que o restaurante cobra uma taxa de serviço de 15%.
 
-_Resolução comentada: O objetivo desse exercício é, a partir do array menu, calcular o preço total do cliente. Ou seja, esperamos ter um único número no final, que corresponde ao total do pedio mais a taxa de serviço de 15 %. Percebe como queremos reduzir o array menu a um único número? Então essa é uma aplicação do reduce! Aqui, somamos o preço de cada item do menu ao total, que acumula essa soma a cada iteração. Como o retorno do reduce é um número contendo o total do pedido, podemos tratá-lo como tal e multiplicar esse retorno por 1.15 para calcular a conta final._
+_Resolução comentada: O objetivo desse exercício é, a partir do array menu, calcular o valor total da conta do cliente. Ou seja, esperamos ter um único número no final, que corresponde ao total do pedio mais a taxa de serviço de 15 %. Percebe como queremos reduzir o array menu a um único número? Então essa é uma aplicação do reduce! Aqui, somamos o preço de cada item do menu ao total, que acumula essa soma a cada iteração. Como o retorno do reduce é um número contendo o total do pedido, podemos tratá-lo como tal e multiplicar esse retorno por 1.15 para calcular a conta final._
 
 ```javascript
 const getBill = (menu.reduce((total, eachPrice) => total + eachPrice.price, 0) * 1.15);
@@ -107,7 +107,7 @@ const getBill = (menu.reduce((total, eachPrice) => total + eachPrice.price, 0) *
 
 4. Crie um objeto para o cliente faminto contendo o nome de todos os items consumidos em ordem alfabética e a quantidade de comida que ele ingeriu (isto é, leve em consideração a quantidade que vem em cada porção).
 
-_Resolução comentada: Queremos criar uma função que nos retorne um objeto contendo apenas o que foi consumido em ordem alfabética e a quantidade total. Que tal criarmos um objeto com o que esperamos retornar? Essa estrutura inicial irá te ajudar a visualizar melhor o que precisa ser feito, e como manipular o array original. Observe que queremos converter o array menu a um objeto com duas chaves. Logo, usaremos o reduce para construí-lo. Observe que passamos esse objeto base (summaryOrder) como o valor inicial para a operação. Observe que o acumulador armazena esse objeto base, e atualiza o valor de items e totalQuantity a cada iteração. Por fim, o retorno na função será o acumulador, que contém o objeto summaryOrder com todos os items consumidos e a quantidade total._
+_Resolução comentada: Queremos criar uma função que nos retorne um objeto contendo apenas o que foi consumido em ordem alfabética e a quantidade total. Que tal criarmos um objeto com o que esperamos retornar? Essa estrutura inicial irá te ajudar a visualizar melhor o que precisa ser feito, e como manipular o array original. Observe que queremos converter o array menu em um objeto com duas chaves. Logo, usaremos o reduce para construí-lo. Observe que passamos esse objeto base (summaryOrder) como o valor inicial para a operação. O acumulador armazena esse objeto base, e atualiza o valor de items e totalQuantity a cada iteração. Por fim, o retorno da função será o acumulador, que contém o objeto summaryOrder com todos os items consumidos e a quantidade total._
 
 ```javascript
 const summaryOrder = {
@@ -153,6 +153,210 @@ const finalBill = () => {
 ```
 
 ## Bônus
+
+Considere o array countries para os exercícios bônus a seguir.
+
+```javascript
+const countries = [
+  {
+    name: 'Brazil',
+    currency: 'Brazilian real',
+    languages: 'Portuguese',
+    leaders: [
+      {
+        firstName: 'Fernando Henrique',
+        lastName: 'Cardoso',
+        birthYear: 1931,
+        year: 1998,
+      },
+      {
+        firstName: 'Luiz Inacio',
+        lastName: 'Lula da Silva',
+        birthYear: 1945,
+        year: [2002, 2006],
+      },
+      {
+        firstName: 'Dilma',
+        lastName: 'Rousseff',
+        birthYear: 1947,
+        year: [2010, 2014],
+      },
+      {
+        firstName: 'Michel',
+        lastName: 'Temer',
+        birthYear: 1940,
+        year: 2014,
+      },
+      {
+        firstName: 'Jair',
+        lastName: 'Bolsonaro',
+        birthYear: 1955,
+        year: 2018,
+      },
+    ]
+  },
+  {
+    name: 'Argentina',
+    currency: 'Argentine peso',
+    languages: ['Spanish', 'English', 'Italian', 'German', 'French'],
+    leaders: [
+      {
+        firstName: 'Fernando',
+        lastName: 'de la Rua',
+        birthYear: 1937,
+        year: 1999,
+      },
+      {
+        firstName: 'Adolfo',
+        lastName: 'Rodríguez Saá',
+        birthYear: 1947,
+        year: 2001,
+      },
+      {
+        firstName: 'Eduardo',
+        lastName: 'Duhalde',
+        birthYear: 1941,
+        year: 2002,
+      },
+      {
+        firstName: 'Nestor',
+        lastName: 'Kirchner',
+        birthYear: 1950,
+        year: 2003,
+      },
+      {
+        firstName: 'Cristina',
+        lastName: 'Fernández de Kirchner',
+        birthYear: 1953,
+        year: [2007, 2011],
+      },
+      {
+        firstName: 'Mauricio',
+        lastName: 'Macri',
+        birthYear: 1959,
+        year: 2015,
+      },
+      {
+        firstName: 'Alberto',
+        lastName: 'Fernandez',
+        birthYear: 1959,
+        year: 2019,
+      },
+    ]
+  },
+  {
+    name: 'Venezuela',
+    currency: 'Venezuelan bolívar',
+    languages: 'Spanish',
+    leaders: [
+      {
+        firstName: 'Hugo',
+        lastName: 'Chavez',
+        birthYear: 1954,
+        year: [2001, 2002, 2007, 2013]
+      },
+      {
+        firstName: 'Pedro',
+        lastName: 'Carmona Estanga',
+        birthYear: 1941,
+        year: 2002,
+      },
+      {
+        firstName: 'Diosdado',
+        lastName: 'Cabello',
+        birthYear: 1963,
+        year: 2002,
+      },
+      {
+        firstName: 'Nicolas',
+        lastName: 'Maduro',
+        birthYear: 1962,
+        year: 2013,
+      },
+    ]
+  },
+  {
+    name: 'Paraguay',
+    currency: 'Paraguayan guaraní',
+    languages: ['Spanish', 'Guaraní'],
+    leaders: [
+      {
+        firstName: 'Luis',
+        lastName: 'Ángel González Macchi',
+        birthYear: 1947,
+        year: 1999,
+      },
+      {
+        firstName: 'Nicanor',
+        lastName: 'Duarte Frutos',
+        birthYear: 1956,
+        year: 2003,
+      },
+      {
+        firstName: 'Fernando',
+        lastName: 'Lugo',
+        birthYear: 1951,
+        year: 2008,
+      },
+      {
+        firstName: 'Federico',
+        lastName: 'Franco',
+        birthYear: 1962,
+        year: 2012,
+      },
+      {
+        firstName: 'Horacio',
+        lastName: 'Cartes',
+        birthYear: 1956,
+        year: 2013,
+      },
+      {
+        firstName: 'Mario',
+        lastName: 'Abdo Benítez',
+        birthYear: 1971,
+        year: 2018,
+      },
+    ]
+  },
+  {
+    name: 'Uruguay',
+    currency: '	Uruguayan peso',
+    languages: 'Spanish',
+    leaders: [
+      {
+        firstName: 'Julio',
+        lastName: 'María Sanguinetti',
+        birthYear: 1936,
+        year: 2000,
+      },
+      {
+        firstName: 'Jorge',
+        lastName: 'Batlle',
+        birthYear: 1927,
+        year: 2005,
+      },
+      {
+        firstName: 'Tabaré',
+        lastName: 'Vázquez',
+        birthYear: 1940,
+        year: 2010,
+      },
+      {
+        firstName: 'José',
+        lastName: 'Mujica',
+        birthYear: 1935,
+        year: 2015,
+      },
+      {
+        firstName: 'Lacalle',
+        lastName: 'Pou',
+        birthYear: 1973,
+        year: 2020,
+      },
+    ]
+  },
+]
+```
 
 1. Crie um array que contenha para cada país fundador a seguinte frase frase: "'NOME_DO_PAÍS teve  NÚMERO_LIDERES_POLÍTICOS no século XX".
 

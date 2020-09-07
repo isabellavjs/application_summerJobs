@@ -75,9 +75,9 @@ console.log(oddNumbers); // [2, 4, 6, 8, 10]
 
 Você consegue perceber que utilizando o `map` chegamos ao mesmo resultado com menos declarações, de uma forma muito mais direta? A grande vantagem do `map` é pegar uma função trivial, como uma simples multiplicação, e transformá-la em uma super-função muito mais eficiente, que será executada em todo o array com apenas uma chamada. Por fim, o map retornará um novo array com o resultado da multiplicação aplicado a cada item sem alterar o array oddNumbers. 
 
-Veja como o map é capaz de tornar até códigos simples em um código muito mais legível, direto e fácil de ser reutilizado - afinal, você não precisaria de recriar o map caso quisesse realizar essa multiplicação novamente em um outro array, como aconteceria com o loop `for`.
+Veja como o `map` é capaz de tornar até códigos simples em um código muito mais legível, direto e fácil de ser reutilizado - afinal, você não precisaria de recriar o `map` caso quisesse realizar essa multiplicação novamente em um outro array, como aconteceria com o loop `for`.
 
-Outra grande vantagem do método map é que você pode criar regras de negócio para serem aplicadas a elementos específicos do array de origem. Como você faria para converter as strings de um array em números, para que todos os elementos do novo array sejam números? Considere o array worldCupTitles abaixo e tente fazer esse exercício utilizando o `map` e o `for`!
+Outra grande vantagem do método `map` é que você pode criar regras de negócio para serem aplicadas a elementos específicos do array de origem. Como você faria para converter as strings de um array em números, para que todos os elementos do novo array sejam do tipo número? Considere o array worldCupTitles abaixo e tente fazer esse exercício utilizando o `map` e o `for`!
 
 ```javascript
 const worldCupTitles = [1958, '1962', '1970', '1994', 2002];
@@ -107,7 +107,7 @@ const onlyNumbers = worldCupTitles.map((year) => {
   if (typeof year === 'string') {
     return parseInt(year);
   }
-  return year
+  return year;
 });
 
 console.log(onlyNumbers); // [ 1958, 1962, 1970, 1994, 2002 ]
@@ -115,7 +115,7 @@ console.log(onlyNumbers); // [ 1958, 1962, 1970, 1994, 2002 ]
 
 Observe que queremos apenas transformar as strings do array worldCupTitles para que o novo array contenha apenas números, sem necessariamente modificar o array original. Nesse exemplo, usamos condicionais para checar se o tipo do elemento que está sendo iterado é uma string para, caso positivo, convertê-lo em um número utilizando a função [parseInt()](https://www.w3schools.com/jsref/jsref_parseint.asp).
 
-Você pode aplicar mais de uma regra de negócio dentro de um `map`. Mas contrua a callback pensando em **como é o elemento que ela irá receber como parâmetro**, e **como você quer que ele seja ao final da operação**. O map irá aplicar essa função callback em cada item do array, retornando um novo array com as transformações passadas.
+Você pode aplicar mais de uma regra de negócio dentro de um `map`. Mas contrua a callback pensando em **como é o elemento que ela irá receber como parâmetro**, e **como você quer que ele seja ao final da operação**. O `map` irá aplicar essa função callback em cada item do array, retornando um novo array com as transformações passadas.
 
 Por fim, vamos ver um exemplo onde o map foi utilizado para manipular um objeto em um array. O `Array.map` pode ser usado para iterar objetos assim como fazemos com arrays. Podemos construir uma callback que modifique o conteúdo de cada objeto e retorne um novo array contendo o objeto modificado. Que tal praticarmos um pouco a manipulação de um objeto utilizando o `map`? Considere o array shopCart a seguir. Tente modificá-lo de forma que exista apenas dois pares chave-valor. A primeira chave refere-se ao nome do produto, e recebe a quantidade comprada. A segunda chave será o valor da compra parcial, ou seja, _quantidade x preço_.
 
@@ -124,7 +124,7 @@ const shopCart = [
   {
     product: 'Pants',
     quantity: 2,
-    price: 17.99
+    price: 17.99,
   },
   {
     product: 'Dress',
@@ -134,7 +134,7 @@ const shopCart = [
   {
     product: 'Shoes',
     quantity: 3,
-    price: 30.99
+    price: 30.99,
   }
 ]
 ```
@@ -187,7 +187,7 @@ Vamos destrinchar a função callback que o `reduce` recebe como parâmetro. Nes
 * Esta função será executada para cada elemento do array passado para o `reduce`;
 * A callback tem dois parâmetros obrigatórios.
 
-Como a função callback tem uma assinatura diferente das funções passadas para as demais HOF, vamos chamá-la aqui de reducer para melhor ilustrar o que essa função faz:
+Como a função callback tem uma assinatura diferente das funções passadas para as demais HOF, vamos chamá-la aqui de _reducer_ para melhor ilustrar o que essa função faz:
 
 ```javascript
 function reducer(accumulator, currentValue, index, array) {
@@ -196,14 +196,14 @@ function reducer(accumulator, currentValue, index, array) {
 }
 ```
 
-Além dos dois parâmetros obrigatórios, a função reducer também recebe dois parâmetros opcionais (_index_ e _array_).
+Além dos dois parâmetros obrigatórios, a função _reducer_ também recebe dois parâmetros opcionais (_index_ e _array_).
 
 1. O parâmetro _accumulator_ é uma variável que salvará o resultado de cada iteração. Ele **acumula** o resultado após a função ser executada para o elemento que está sendo iterado. Quando a última iteração for concluída, o _accumulator_ terá acumulado o resultado de cada iteração;
 2. _CurrentValue_ é o elemento do array passado ao `Array.reduce` no qual a função reducer está sendo executada;
 3. O _index_ corresponde à posição do elemento do array original no momento em que a função é executada. Ou seja, a posição do _currentValue_;
-4. O array corresponde ao array original passado ao `Array.reduce`. A função reducer será aplicada para cada elemento desse array.
+4. O array corresponde ao array original passado ao `Array.reduce`. A função _reducer_ será aplicada para cada elemento desse array.
 
-Vamos entender o método `reduce` com um exemplo prático. considere o array numbers abaixo. Como você faria para somar todos os items do array? Tente fazer esse exercício antes de prosseguir.
+Vamos entender o método `reduce` com um exemplo prático. Considere o array numbers abaixo. Como você faria para somar todos os items do array? Tente fazer esse exercício antes de prosseguir.
 
 ```javascript
 const numbers = [1, 5, 8, 54, 20];
@@ -298,7 +298,7 @@ const summaryResult = shopCartByItem.reduce((accumulator, item) => {
 console.log(summaryResult); // { totalQuantity: 3, totalPrice: 273.9 }
 ```
 
-A partir de um array contendo três objetos, construímos um único objeto com uma nova estrutura. Perceba que nesse exemplo o acumulador **não é um número**. Note também que os parâmetros que passamos para a callback (accumulator e item) **não são do mesmo tipo**. Antes de começar a resolver qualquer problema com o `reduce`, pense no que você está passando para a callback e como essa função irá processá-los. Outro ponto de atenção aqui é o retorno da callback. Observe que o acumulador que retornamos contém as modificações implementadas por essa função. O que aconteceria se você esquecesse o retorno da callback? Faça esse teste no seu editor antes de prosseguir!
+A partir de um array contendo três objetos, construímos um único objeto com uma nova estrutura. Perceba que nesse exemplo o acumulador **não é um número**. Note também que os parâmetros que passamos para a callback (_accumulator_ e _item_) **não são do mesmo tipo**. Antes de começar a resolver qualquer problema com o `reduce`, pense no que você está passando para a callback e como essa função irá processá-los. Outro ponto de atenção aqui é o retorno da callback. Observe que o acumulador que retornamos contém as modificações implementadas por essa função. O que aconteceria se você esquecesse o retorno da callback? Faça esse teste no seu editor antes de prosseguir!
 
 Antes de praticar o que aprendemos com os exercícios, vamos recaptular o que vimos com o diagrama abaixo. Além do `map` e `reduce`, o diagrama também inclui outros métodos que são muito utilizados - como o `forEach`, `find`, `filter`, `some`, `every` e o `includes`. Se você ainda não está familiarizado com todos eles, não se preocupe! Tente abstrair o que queremos retornar com cada método, e procure pesquisar aqueles que você ainda não conhece.
 
@@ -616,5 +616,6 @@ const countries = [
 - [Javascript Higher Order Functions: Map e Reduce do zero ao topo.](https://medium.com/@fabiosenracorrea/javascript-higher-order-functions-map-e-reduce-do-zero-ao-topo-6365784f959a)
 - [Functional javascript: how to use array reduce for more than just numbers](https://jrsinclair.com/articles/2019/functional-js-do-more-with-reduce/)
 - [Javascript: quando devo usar o forEach e map?](https://www.alura.com.br/artigos/javascript-quando-devo-usar-foreach-e-map)
+- [A Guide To The Reduce Method In Javascript​](https://www.freecodecamp.org/news/reduce-f47a7da511a9/)
 - [Array.prototype.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 - [Array.prototype.reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
