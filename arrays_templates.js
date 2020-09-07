@@ -644,7 +644,15 @@ const shopCartByItem = shopCart.map((item) => {
 
   return newObject;
 })
-console.log(shopCartByItem);
+//console.log(shopCartByItem);
+
+const mostExpensive = shopCart.reduce((accumulator, item) => {
+  if (accumulator < item.price) {
+    return item.price;
+  }
+  else accumulator;
+}, 0)
+console.log(mostExpensive);
 
 const numbers = [1, 5, 8, 54, 20];
 
@@ -663,5 +671,5 @@ const numbers = [1, 5, 8, 54, 20];
 //  Refatorando a função acima:
 
 const resultSum = numbers.reduce((result, number) => result + number, 10);
-console.log(resultSum); // 256.5
+console.log(resultSum); // 98
 
