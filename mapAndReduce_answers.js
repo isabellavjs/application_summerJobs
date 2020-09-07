@@ -107,7 +107,6 @@ const consumption = (
   }, summaryOrder)
 )
 consumption.items.sort();
-console.log(consumption);
 
 // Exercício 5: Retorne o preço total a ser cobrado considerando a quantidade pedida pelo grupo, e a taxa de serviço de 15%.
 
@@ -132,11 +131,11 @@ const finalBill = () => {
 }
 
 // Bonus
+
 const countries = [
   {
     name: 'Brazil',
     currency: 'Brazilian real',
-    capital: 'Brasilia',
     languages: 'Portuguese',
     leaders: [
       {
@@ -172,41 +171,8 @@ const countries = [
     ]
   },
   {
-    name: 'Colombia',
-    currency: '	Colombian peso',
-    capital: 'Bogotá',
-    languages: 'Spanish',
-    leaders: [
-      {
-        firstName: 'Andres',
-        lastName: 'Pastrana Arango',
-        birthYear: 1954,
-        year: 1998,
-      },
-      {
-        firstName: 'Alvaro',
-        lastName: 'Uribe Velez',
-        birthYear: 1952,
-        year: 2002,
-      },
-      {
-        firstName: 'Juan Manuel',
-        lastName: 'Santos',
-        birthYear: 1951,
-        year: 2010,
-      },
-      {
-        firstName: 'Ivan',
-        lastName: 'Duarque Marquez',
-        birthYear: 1976,
-        year: 2018,
-      },
-    ],
-  },
-  {
     name: 'Argentina',
     currency: 'Argentine peso',
-    capital: 'Buenos Aires',
     languages: ['Spanish', 'English', 'Italian', 'German', 'French'],
     leaders: [
       {
@@ -254,53 +220,8 @@ const countries = [
     ]
   },
   {
-    name: 'Peru',
-    currency: 'Peruvian nuevo sol',
-    capital: 'Lima',
-    languages: ['Spanish', 'Quéchua', 'Aymara'],
-    leaders: [
-      {
-        firstName: 'Valentin',
-        lastName: 'Paniagua',
-        birthYear: 1936,
-        year: 2000,
-      },
-      {
-        firstName: 'Alejandro',
-        lastName: 'Toledo',
-        birthYear: 1946,
-        year: 2001,
-      },
-      {
-        firstName: 'Alan',
-        lastName: 'Garcia Perez',
-        birthYear: 1949,
-        year: 2006,
-      },
-      {
-        firstName: 'Ollanta',
-        lastName: 'Humala',
-        birthYear: 1962,
-        year: 2011,
-      },
-      {
-        firstName: 'Pedro',
-        lastName: 'Pablo Kuczynski',
-        birthYear: 1938,
-        year: 2016,
-      },
-      {
-        firstName: 'Martin',
-        lastName: 'Vizcarra',
-        birthYear: 1963,
-        year: 2018,
-      },
-    ]
-  },
-  {
     name: 'Venezuela',
     currency: 'Venezuelan bolívar',
-    capital: 'Caracas',
     languages: 'Spanish',
     leaders: [
       {
@@ -330,129 +251,8 @@ const countries = [
     ]
   },
   {
-    name: 'Chile',
-    currency: 'Chilean peso',
-    capital: 'Santiago',
-    languages: 'Spanish',
-    leaders: [
-      {
-        firstName: 'Ricardo',
-        lastName: 'Lagos',
-        birthYear: 1938,
-        year: 2000,
-      },
-      {
-        firstName: 'Michelle',
-        lastName: 'Bachelet',
-        birthYear: 1951,
-        year: [2006, 2014],
-      },
-      {
-        firstName: 'Sebastian',
-        lastName: 'Piñera',
-        birthYear: 1949,
-        year: [2010, 2018]
-      },
-    ]
-  },
-  {
-    name: 'Ecuador',
-    currency: 'United States dollar',
-    capital: 'Quito',
-    languages: ['Spanish', 'Quechua'],
-    leaders: [
-      {
-        firstName: 'Jamil',
-        lastName: 'Mahuad',
-        birthYear: 1949,
-        year: 1998,
-      },
-      {
-        firstName: 'Gustavo',
-        lastName: 'Noboa',
-        birthYear: 1937,
-        year: 2000,
-      },
-      {
-        firstName: 'Lucio Edwin',
-        lastName: 'Gutiérrez Borbúa',
-        birthYear: 1957,
-        year: 2003,
-      },
-      {
-        firstName: 'Alfredo',
-        lastName: 'Palacio',
-        birthYear: 1939,
-        year: 2005,
-      },
-      {
-        firstName: 'Rafael',
-        lastName: 'Correa',
-        birthYear: 1963,
-        year: 2007,
-      },
-      {
-        firstName: 'Lenín',
-        lastName: 'Moreno',
-        birthYear: 1953,
-        year: 2017,
-      },
-    ]
-  },
-  {
-    name: 'Bolivia',
-    currency: 'Boliviano',
-    capital: ['La Paz', 'Sucre'],
-    languages: ['Spanish', 'Quechua', 'Aymara', 'Guarani'],
-    leaders: [
-      {
-        firstName: 'Hugo',
-        lastName: 'Banzer',
-        birthYear: 1926,
-        year: 1997,
-      },
-      {
-        firstName: 'Jorge',
-        lastName: 'Quiroga',
-        birthYear: 1960,
-        year: 2001,
-      },
-      {
-        firstName: 'Gonzalo',
-        lastName: 'Sánchez de Lozada',
-        birthYear: 1930,
-        year: 2002,
-      },
-      {
-        firstName: 'Carlos',
-        lastName: 'Mesa',
-        birthYear: 1953,
-        year: 2003,
-      },
-      {
-        firstName: 'Eduardo',
-        lastName: 'Rodríguez',
-        birthYear: 1956,
-        year: 2005,
-      },
-      {
-        firstName: 'Evo',
-        lastName: 'Morales',
-        birthYear: 1959,
-        year: 2006,
-      },
-      {
-        firstName: 'Jeanine',
-        lastName: 'Áñez',
-        birthYear: 1967,
-        year: 2019,
-      },
-    ]
-  },
-  {
     name: 'Paraguay',
     currency: 'Paraguayan guaraní',
-    capital: 'Asunción',
     languages: ['Spanish', 'Guaraní'],
     leaders: [
       {
@@ -495,8 +295,7 @@ const countries = [
   },
   {
     name: 'Uruguay',
-    currency: '	Uruguayan peso',
-    capital: 'Montevideo',
+    currency: 'Uruguayan peso',
     languages: 'Spanish',
     leaders: [
       {
@@ -531,67 +330,24 @@ const countries = [
       },
     ]
   },
-  {
-    name: 'Guyana',
-    currency: 'Guyanese dollar',
-    capital: 'Georgetown',
-    languages: 'English',
-    leaders: [
-      {
-        firstName: 'Bharrat',
-        lastName: 'Jagdeo',
-        birthYear: 1964,
-        year: 1999,
-      },
-      {
-        firstName: 'Donald',
-        lastName: 'Ramotar',
-        birthYear: 1950,
-        year: 2011,
-      },
-      {
-        firstName: 'David',
-        lastName: 'Granger',
-        birthYear: 1942,
-        year: 2015,
-      },
-      {
-        firstName: 'Irfaan',
-        lastName: 'Ali',
-        birthYear: 1942,
-        year: 2020,
-      },
-    ]
-  },
-  {
-    name: 'Suriname',
-    currency: '	Surinamese dollar',
-    capital: 'Paramaribo',
-    languages: ['Dutch', 'Surinamese', 'English'],
-    leaders: [
-      {
-        firstName: 'Ronald',
-        lastName: 'Venetiaan',
-        birthYear: 1937,
-        year: 2000,
-      },
-      {
-        firstName: 'Dési',
-        lastName: 'Bouterse',
-        birthYear: 1945,
-        year: 2010,
-      },
-      {
-        firstName: 'Chan',
-        lastName: 'Santokhi',
-        birthYear: 1959,
-        year: 2020,
-      },
-    ]
-  },
 ]
-
 // Bonus 1:
 
-const countriesAndLeaders = countries.map(item => `${item.name} teve ${item.leaders.length} líderes políticos no século XX`)
-console.log(countriesAndLeaders);
+const countriesAndLeaders = countries
+.map(item => `${item.name} teve ${item.leaders.length} líderes políticos no século XX`);
+
+// Bonus 2:
+
+const currentLeaderAverageAge = countries
+.map(leader => {
+  const arrLeaders = leader.leaders;
+  const currentLeader = arrLeaders[arrLeaders.length -1];
+  return currentLeader;
+})
+.reduce((accumulator, currentValue) => (
+  accumulator + (currentValue.year - currentValue.birthYear)
+), 0) / countries.length;
+
+console.log(currentLeaderAverageAge);
+
+// Bonus 3:

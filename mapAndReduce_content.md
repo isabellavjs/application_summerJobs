@@ -37,17 +37,17 @@ const newArray = arr.map(function callback(currentValue, index, array){
 });
 ```
 
-1.  O parâmetro _currentValue_ corresponde ao elemento do array original em que a função está sendo aplicada.
-2. _index_ é a posição desse mesmo elemento. Esse parâmetro é opcional.
+1.  O parâmetro _currentValue_ corresponde ao elemento do array original em que a função está sendo aplicada;
+2. _index_ é a posição desse mesmo elemento. Esse parâmetro é opcional;
 3. _array_ corresponde ao array original em que a função é aplicada. Esse argumento também é opcional.
 
-Em outras palavras, o método map irá executar a função callback uma vez para cada elemento (_currentValue_) do array que lhe foi passado (no exemplo, _arr_). O retorno da callback será um novo elemento que será inserido na mesma posição do elemento em que a função é executada. Ao fim da última iteração, teremos um novo array (_newArray_) com o retorno da função callback!
+Em outras palavras, o método `map` irá executar a função callback uma vez para cada elemento (_currentValue_) do array que lhe foi passado (no exemplo, _arr_). O retorno da callback será um novo elemento que será inserido na mesma posição do elemento em que a função é executada. Ao fim da última iteração, teremos um novo array (_newArray_) com o retorno da função callback!
 
 Observe que **utilizamos o map** quando queremos **transformar** um array a partir de um outro array, mas **mantendo a mesma quantidade de elementos do original**.  
 
 Vamos ver na prática como isso funciona.
 
-Como você faria para multiplicar por dois cada elemento do array abaixo, retornando o resultado em um novo array? Primeiro, tente fazer essa operação com um for antes de prosseguir.
+Como você faria para multiplicar por dois cada elemento do array abaixo, retornando o resultado em um novo array? Primeiro, tente fazer essa operação com um `for` antes de prosseguir.
 
 ```javascript
 const oddNumbers = [2, 4, 6, 8, 10];
@@ -73,7 +73,7 @@ console.log(multiplesTwoMap); // [ 4, 8, 12, 16, 20 ]
 console.log(oddNumbers); // [2, 4, 6, 8, 10]
 ```
 
-Você consegue perceber que utilizando o map chegamos ao mesmo resultado com menos declarações, de uma forma muito mais direta? A grande vantagem do map é pegar uma função trivial, como uma simples multiplicação, e transformá-la em uma super-função muito mais eficiente, que será executada em todo o array com apenas uma chamada. Por fim, o map retornará um novo array com o resultado da multiplicação aplicado a cada item sem alterar o array oddNumbers. 
+Você consegue perceber que utilizando o `map` chegamos ao mesmo resultado com menos declarações, de uma forma muito mais direta? A grande vantagem do `map` é pegar uma função trivial, como uma simples multiplicação, e transformá-la em uma super-função muito mais eficiente, que será executada em todo o array com apenas uma chamada. Por fim, o map retornará um novo array com o resultado da multiplicação aplicado a cada item sem alterar o array oddNumbers. 
 
 Veja como o map é capaz de tornar até códigos simples em um código muito mais legível, direto e fácil de ser reutilizado - afinal, você não precisaria de recriar o map caso quisesse realizar essa multiplicação novamente em um outro array, como aconteceria com o loop `for`.
 
@@ -115,9 +115,9 @@ console.log(onlyNumbers); // [ 1958, 1962, 1970, 1994, 2002 ]
 
 Observe que queremos apenas transformar as strings do array worldCupTitles para que o novo array contenha apenas números, sem necessariamente modificar o array original. Nesse exemplo, usamos condicionais para checar se o tipo do elemento que está sendo iterado é uma string para, caso positivo, convertê-lo em um número utilizando a função [parseInt()](https://www.w3schools.com/jsref/jsref_parseint.asp).
 
-Você pode aplicar mais de uma regra de negócio dentro de um map. Mas contrua a callback pensando em como é o elemento que ela irá receber como parâmetro, e como você quer que ele seja ao final da operação. O map irá aplicar essa função callback em cada item do array, retornando um novo array com as transformações passadas.
+Você pode aplicar mais de uma regra de negócio dentro de um `map`. Mas contrua a callback pensando em **como é o elemento que ela irá receber como parâmetro**, e **como você quer que ele seja ao final da operação**. O map irá aplicar essa função callback em cada item do array, retornando um novo array com as transformações passadas.
 
-Por fim, vamos ver um exemplo onde o map foi utilizado para manipular um objeto em um array. O `Array.map` pode ser usado para iterar objetos assim como fazemos com arrays. Podemos construir uma callback que modifique o conteúdo de cada objeto e retorne um novo array contendo o objeto modificado. Que tal praticarmos um pouco a manipulação de um objeto utilizando o map? Considere o array shopCart a seguir. Utilizando o map, tente modificá-lo de forma que exista apenas dois pares chave-valor. A primeira chave refere-se ao nome do produto, e recebe a quantidade comprada. A segunda chave será o valor da compra parcial, ou seja, _quantidade x preço_.
+Por fim, vamos ver um exemplo onde o map foi utilizado para manipular um objeto em um array. O `Array.map` pode ser usado para iterar objetos assim como fazemos com arrays. Podemos construir uma callback que modifique o conteúdo de cada objeto e retorne um novo array contendo o objeto modificado. Que tal praticarmos um pouco a manipulação de um objeto utilizando o `map`? Considere o array shopCart a seguir. Tente modificá-lo de forma que exista apenas dois pares chave-valor. A primeira chave refere-se ao nome do produto, e recebe a quantidade comprada. A segunda chave será o valor da compra parcial, ou seja, _quantidade x preço_.
 
 ```javascript
 const shopCart = [
@@ -149,7 +149,7 @@ const shopCartByItem = shopCart.map((item) => {
   newObject.partialPrice = item.quantity * item.price;
 
   return newObject;
-})
+});
 
 console.log(shopCartByItem);
 
@@ -174,18 +174,18 @@ Antes de entendermos o método `Array.reduce` observe atentamente a sua sintaxe 
   }, initialValue);
 ```
 
-Assim como o `Array.map`, o método `Array.reduce` também é uma HOF que recebe como parâmetro uma única função que será executada para cada item de um array. No entanto, esse método tem uma assinatura  bem diferente do map. Alguns pontos de atenção:
+Assim como o `Array.map`, o método `Array.reduce` também é uma HOF que recebe como parâmetro uma única função que será executada para cada item de um array. No entanto, esse método tem uma assinatura  bem diferente do `map` e de outras HOF. Alguns pontos de atenção:
 
-* O retorno do reduce **não é necessariamente um array**. Como será visto em breve, o reduce retornará o valor do parâmetro _accumulator_ depois de todas as iterações. Por enquanto, tenha em mente que o _accumulator_  e o retorno do reduce podem ser um número, uma string, um array ou até mesmo um objeto. Você verá em breve que essa característica é uma das responsáveis por fazer do reduce um método tão versátil! 
-* A função callback que passamos para o reduce recebe pelo menos dois parâmetros obrigatórios (_accumulator_ e _currentValue_);
+* O retorno do `reduce` **não é necessariamente um array**. Como será visto em breve, o reduce retornará o valor do parâmetro _accumulator_ depois de todas as iterações. Por enquanto, tenha em mente que o _accumulator_  e o retorno do `reduce` podem ser um número, uma string, um array ou até mesmo um objeto. Você verá em breve que essa característica é uma das responsáveis por fazer este método tão versátil! 
+* A função callback que passamos para o `reduce` recebe dois parâmetros obrigatórios (_accumulator_ e _currentValue_);
 * O método `Array.reduce` pode receber um segundo parâmetro opcional: _initialValue_.
 
-Com essas diferenças em mente, assim como fizemos com o map, vamos nos perguntar: o que é passado para o `Array.reduce`, e o que ele irá nos retornar?
+Com essas diferenças em mente, assim como fizemos com o `map`, vamos nos perguntar: o que é passado para o `Array.reduce`, e o que ele irá nos retornar?
 
-Vamos destrinchar a função callback que o reduce recebe como parâmetro. Neste ponto, você já sabe que:
+Vamos destrinchar a função callback que o `reduce` recebe como parâmetro. Neste ponto, você já sabe que:
 
-* Esta função será executada para cada elemento do array passado para o reduce;
-* A callback tem pelo menos dois parâmetros obrigatórios.
+* Esta função será executada para cada elemento do array passado para o `reduce`;
+* A callback tem dois parâmetros obrigatórios.
 
 Como a função callback tem uma assinatura diferente das funções passadas para as demais HOF, vamos chamá-la aqui de reducer para melhor ilustrar o que essa função faz:
 
@@ -196,14 +196,14 @@ function reducer(accumulator, currentValue, index, array) {
 }
 ```
 
-Além dos dois parâmetros obrigatórios, a função `reducer` também recebe dois parâmetros opcionais (_index_ e _array_).
+Além dos dois parâmetros obrigatórios, a função reducer também recebe dois parâmetros opcionais (_index_ e _array_).
 
 1. O parâmetro _accumulator_ é uma variável que salvará o resultado de cada iteração. Ele **acumula** o resultado após a função ser executada para o elemento que está sendo iterado. Quando a última iteração for concluída, o _accumulator_ terá acumulado o resultado de cada iteração;
-2. CurrentValue é o elemento do array passado ao reducer no qual a função reducer está sendo executada;
-3. O index corresponde à posição do elemento do array original no momento em que a função é executada. Ou seja, a posição do currentValue;
+2. _CurrentValue_ é o elemento do array passado ao `Array.reduce` no qual a função reducer está sendo executada;
+3. O _index_ corresponde à posição do elemento do array original no momento em que a função é executada. Ou seja, a posição do _currentValue_;
 4. O array corresponde ao array original passado ao `Array.reduce`. A função reducer será aplicada para cada elemento desse array.
 
-Vamos entender o método reduce com um exemplo prático. considere o array numbers abaixo. Como você faria para somá-lo? Tente fazer esse exercício antes de prosseguir.
+Vamos entender o método `reduce` com um exemplo prático. considere o array numbers abaixo. Como você faria para somar todos os items do array? Tente fazer esse exercício antes de prosseguir.
 
 ```javascript
 const numbers = [1, 5, 8, 54, 20];
@@ -220,7 +220,7 @@ for (let index = 0; index < numbers.length; index += 1) {
 console.log(resultSum); // 88
 ```
 
-Utilizando o reduce:
+Utilizando o `reduce`:
 
 ```javascript
 const getSum = (result, number) => result + number; // 'getSum' é a função callback que passamos para o reduce. 'result' é o accumulator, e armazenará o resultado da soma a cada iteração.
@@ -246,7 +246,7 @@ Quarta chamada | 68 | 20 | 4 | 88
 
 Você consegue perceber as diferenças entre a solução com o `for` e `reduce`? Tente listá-las antes de prosseguir para fixar o conteúdo!
 
-Outra vantagem do reduce é atribuir um valor ao acumulador antes de executar a função callback. Assim, na primeira iteração o acumulador terá o valor especificado no parâmetro _initialValue_. Quando não passamos um valor inicial, o acumulador assume o valor do elemento na posição 0 do array que será processado. 
+Outra vantagem do `reduce` é atribuir um valor ao acumulador antes de executar a função callback. Assim, na primeira iteração o acumulador terá o valor especificado no parâmetro _initialValue_. Quando não passamos um valor inicial, o acumulador assume o valor do elemento na posição 0 do array que será processado. 
 
 Rode o código abaixo no seu editor e veja o que acontece!
 
@@ -256,39 +256,53 @@ const resultSum = numbers.reduce((result, number) => result + number, 10);
 console.log(resultSum); // 98
 ```
 
-Comparando o map e o reduce, note que enquanto o método `Array.map` **transforma** um array em um novo array com as mesmas dimensões, o método `Array.reduce` **reduz** o array passado a um único valor. Mas **atenção**: como explicamos no início dessa sessão o reduce não irá necessariamente reduzir uma estrutura de array a um único número. Exemplos numéricos são ótimos para enxergar com clareza como o método reduce funciona. Mas podemos ir ~~ao infinito e~~ além com o reduce adicionando regras de negócio, manipulando arrays e  construindo objetos, como veremos nos exemplos práticos a seguir.
-
-// Exemplo prático usando condicionais + entendendo o retorno do reduce
-
-Vamos usar o exemplo do carrinho de compras novamente para exemplificar o uso do reduce em outros contextos.
+Assim como outras HOF, você também pode aplicar regras de negócio para que a função callback processe items específicos do array passado ao `reduce`. Como você faria para somar **apenas** os números pares do array numbers? Novamente, tente fazer esse exercício utilizando o `reduce` antes de seguir com a matéria.
 
 ```javascript
-const shopCart = [
-  {
-    product: 'Pants',
-    quantity: 2,
-    price: 17.99
-  },
-  {
-    product: 'Dress',
-    quantity: 4,
-    price: 35.99,
-  },
-  {
-    product: 'Shoes',
-    quantity: 3,
-    price: 30.99
+const sumOddNumbers = numbers.reduce((result, number) => {
+  if (number % 2 === 0) {
+    return result + number;
   }
-]
+  return result;
+}, 0);
+
+console.log(sumOddNumbers); // 82
 ```
 
-// Exemplo prático para retornar um objeto
+Observe que nesse exemplo, precisamos passar o valor 0 como parâmetro para o `reduce`. Lembre-se de que quando esse parâmetro **não** é passado, o acumulador assumirá o valor do item na posição zero para a primeira chamada da função. No exemplo, temos o número 1 no índice 0 e ele não deve ser somado!
 
-// Combinando o reduce e o map
+Comparando o `map` e o `reduce`, note que enquanto o método `Array.map` **transforma** um array em um novo array com as mesmas dimensões, neste exemplo o método `Array.reduce` **reduziu** o array passado a um único valor. Mas **atenção**: como explicamos no início dessa sessão o `reduce` não irá necessariamente reduzir uma estrutura de array a um único número. Exemplos numéricos são ótimos para enxergar com clareza como o método `reduce` funciona. Mas podemos ir ~~ao infinito e~~ além com o `reduce` adicionando regras de negócio, manipulando arrays e  construindo objetos, como veremos nos exemplos práticos a seguir.
 
+Vamos voltar ao exemplo do carrinho de compras para exemplificar o uso do `reduce` em outros contextos, como para construir um novo objeto a partir de um array. O seu objetivo aqui é criar um objeto com a chave totalQuantity contendo a quantidade total comprada, e a chave totalPrice com o valor total da compra. Utilize o array shopCartByItem abaixo: 
 
+```javascript
+const shopCartByItem = [
+  { product: 'T-shirt', price: 35.90 },
+  { product: 'Sneakers', price: 145.50 },
+  { product: 'Jeans', price: 92.50 },
+]
+```
+Resolução: 
+```javascript
+const newObject = {
+  totalQuantity: 0,
+  totalPrice: 0,
+}
 
+const summaryResult = shopCartByItem.reduce((accumulator, item) => {
+  accumulator.totalQuantity += 1;
+  accumulator.totalPrice += item.price;
+  return accumulator;
+}, newObject);
 
+console.log(summaryResult); // { totalQuantity: 3, totalPrice: 273.9 }
+```
+
+A partir de um array contendo três objetos, construímos um único objeto com uma nova estrutura. Perceba que nesse exemplo o acumulador **não é um número**. Note também que os parâmetros que passamos para a callback (accumulator e item) **não são do mesmo tipo**. Antes de começar a resolver qualquer problema com o `reduce`, pense no que você está passando para a callback e como essa função irá processá-los. Outro ponto de atenção aqui é o retorno da callback. Observe que o acumulador que retornamos contém as modificações implementadas por essa função. O que aconteceria se você esquecesse o retorno da callback? Faça esse teste no seu editor antes de prosseguir!
+
+Antes de praticar o que aprendemos com os exercícios, vamos recaptular o que vimos com o diagrama abaixo. Além do `map` e `reduce`, o diagrama também inclui outros métodos que são muito utilizados - como o `forEach`, `find`, `filter`, `some`, `every` e o `includes`. Se você ainda não está familiarizado com todas eles, não se preocupe! Tente abstrair o que queremos retornar com cada método, e procure pesquisar aqueles que você ainda não conhece.
+
+![Diagram array methods](img.png)
 
 ## Exercícios
 
@@ -390,14 +404,13 @@ Retorne o preço total a ser cobrado considerando a quantidade pedida pelo grupo
 
 ## Bonus
 
-Para os exercícios bônus, considere o array countries abaixo.
+Para os exercícios bônus, considere o array countries abaixo. Ele contém uma lista com informações referente aos países fundadores do Mercosul.
 
 ```javascript
 const countries = [
   {
     name: 'Brazil',
     currency: 'Brazilian real',
-    capital: 'Brasilia',
     languages: 'Portuguese',
     leaders: [
       {
@@ -433,41 +446,8 @@ const countries = [
     ]
   },
   {
-    name: 'Colombia',
-    currency: '	Colombian peso',
-    capital: 'Bogotá',
-    languages: 'Spanish',
-    leaders: [
-      {
-        firstName: 'Andres',
-        lastName: 'Pastrana Arango',
-        birthYear: 1954,
-        year: 1998,
-      },
-      {
-        firstName: 'Alvaro',
-        lastName: 'Uribe Velez',
-        birthYear: 1952,
-        year: 2002,
-      },
-      {
-        firstName: 'Juan Manuel',
-        lastName: 'Santos',
-        birthYear: 1951,
-        year: 2010,
-      },
-      {
-        firstName: 'Ivan',
-        lastName: 'Duarque Marquez',
-        birthYear: 1976,
-        year: 2018,
-      },
-    ],
-  },
-  {
     name: 'Argentina',
     currency: 'Argentine peso',
-    capital: 'Buenos Aires',
     languages: ['Spanish', 'English', 'Italian', 'German', 'French'],
     leaders: [
       {
@@ -515,53 +495,8 @@ const countries = [
     ]
   },
   {
-    name: 'Peru',
-    currency: 'Peruvian nuevo sol',
-    capital: 'Lima',
-    languages: ['Spanish', 'Quéchua', 'Aymara'],
-    leaders: [
-      {
-        firstName: 'Valentin',
-        lastName: 'Paniagua',
-        birthYear: 1936,
-        year: 2000,
-      },
-      {
-        firstName: 'Alejandro',
-        lastName: 'Toledo',
-        birthYear: 1946,
-        year: 2001,
-      },
-      {
-        firstName: 'Alan',
-        lastName: 'Garcia Perez',
-        birthYear: 1949,
-        year: 2006,
-      },
-      {
-        firstName: 'Ollanta',
-        lastName: 'Humala',
-        birthYear: 1962,
-        year: 2011,
-      },
-      {
-        firstName: 'Pedro',
-        lastName: 'Pablo Kuczynski',
-        birthYear: 1938,
-        year: 2016,
-      },
-      {
-        firstName: 'Martin',
-        lastName: 'Vizcarra',
-        birthYear: 1963,
-        year: 2018,
-      },
-    ]
-  },
-  {
     name: 'Venezuela',
     currency: 'Venezuelan bolívar',
-    capital: 'Caracas',
     languages: 'Spanish',
     leaders: [
       {
@@ -591,129 +526,8 @@ const countries = [
     ]
   },
   {
-    name: 'Chile',
-    currency: 'Chilean peso',
-    capital: 'Santiago',
-    languages: 'Spanish',
-    leaders: [
-      {
-        firstName: 'Ricardo',
-        lastName: 'Lagos',
-        birthYear: 1938,
-        year: 2000,
-      },
-      {
-        firstName: 'Michelle',
-        lastName: 'Bachelet',
-        birthYear: 1951,
-        year: [2006, 2014],
-      },
-      {
-        firstName: 'Sebastian',
-        lastName: 'Piñera',
-        birthYear: 1949,
-        year: [2010, 2018]
-      },
-    ]
-  },
-  {
-    name: 'Ecuador',
-    currency: 'United States dollar',
-    capital: 'Quito',
-    languages: ['Spanish', 'Quechua'],
-    leaders: [
-      {
-        firstName: 'Jamil',
-        lastName: 'Mahuad',
-        birthYear: 1949,
-        year: 1998,
-      },
-      {
-        firstName: 'Gustavo',
-        lastName: 'Noboa',
-        birthYear: 1937,
-        year: 2000,
-      },
-      {
-        firstName: 'Lucio Edwin',
-        lastName: 'Gutiérrez Borbúa',
-        birthYear: 1957,
-        year: 2003,
-      },
-      {
-        firstName: 'Alfredo',
-        lastName: 'Palacio',
-        birthYear: 1939,
-        year: 2005,
-      },
-      {
-        firstName: 'Rafael',
-        lastName: 'Correa',
-        birthYear: 1963,
-        year: 2007,
-      },
-      {
-        firstName: 'Lenín',
-        lastName: 'Moreno',
-        birthYear: 1953,
-        year: 2017,
-      },
-    ]
-  },
-  {
-    name: 'Bolivia',
-    currency: 'Boliviano',
-    capital: ['La Paz', 'Sucre'],
-    languages: ['Spanish', 'Quechua', 'Aymara', 'Guarani'],
-    leaders: [
-      {
-        firstName: 'Hugo',
-        lastName: 'Banzer',
-        birthYear: 1926,
-        year: 1997,
-      },
-      {
-        firstName: 'Jorge',
-        lastName: 'Quiroga',
-        birthYear: 1960,
-        year: 2001,
-      },
-      {
-        firstName: 'Gonzalo',
-        lastName: 'Sánchez de Lozada',
-        birthYear: 1930,
-        year: 2002,
-      },
-      {
-        firstName: 'Carlos',
-        lastName: 'Mesa',
-        birthYear: 1953,
-        year: 2003,
-      },
-      {
-        firstName: 'Eduardo',
-        lastName: 'Rodríguez',
-        birthYear: 1956,
-        year: 2005,
-      },
-      {
-        firstName: 'Evo',
-        lastName: 'Morales',
-        birthYear: 1959,
-        year: 2006,
-      },
-      {
-        firstName: 'Jeanine',
-        lastName: 'Áñez',
-        birthYear: 1967,
-        year: 2019,
-      },
-    ]
-  },
-  {
     name: 'Paraguay',
     currency: 'Paraguayan guaraní',
-    capital: 'Asunción',
     languages: ['Spanish', 'Guaraní'],
     leaders: [
       {
@@ -757,7 +571,6 @@ const countries = [
   {
     name: 'Uruguay',
     currency: '	Uruguayan peso',
-    capital: 'Montevideo',
     languages: 'Spanish',
     leaders: [
       {
@@ -792,66 +605,11 @@ const countries = [
       },
     ]
   },
-  {
-    name: 'Guyana',
-    currency: 'Guyanese dollar',
-    capital: 'Georgetown',
-    languages: 'English',
-    leaders: [
-      {
-        firstName: 'Bharrat',
-        lastName: 'Jagdeo',
-        birthYear: 1964,
-        year: 1999,
-      },
-      {
-        firstName: 'Donald',
-        lastName: 'Ramotar',
-        birthYear: 1950,
-        year: 2011,
-      },
-      {
-        firstName: 'David',
-        lastName: 'Granger',
-        birthYear: 1942,
-        year: 2015,
-      },
-      {
-        firstName: 'Irfaan',
-        lastName: 'Ali',
-        birthYear: 1942,
-        year: 2020,
-      },
-    ]
-  },
-  {
-    name: 'Suriname',
-    currency: '	Surinamese dollar',
-    capital: 'Paramaribo',
-    languages: ['Dutch', 'Surinamese', 'English'],
-    leaders: [
-      {
-        firstName: 'Ronald',
-        lastName: 'Venetiaan',
-        birthYear: 1937,
-        year: 2000,
-      },
-      {
-        firstName: 'Dési',
-        lastName: 'Bouterse',
-        birthYear: 1945,
-        year: 2010,
-      },
-      {
-        firstName: 'Chan',
-        lastName: 'Santokhi',
-        birthYear: 1959,
-        year: 2020,
-      },
-    ]
-  },
 ]
 ```
+1. Crie um array que imprima para cada país fundador a seguinte frase frase: "NOME_DO_PAÍS teve NÚMERO_LÍDERES_POLÍTICOS no século XX".
+
+2. Calcule a idade média dos presidentes atuais quando eles tomaram posse.
 
 ## Recursos adicionais
 
